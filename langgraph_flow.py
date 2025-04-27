@@ -109,10 +109,30 @@ async def llm_agent_node(
                             f"Lambda模式: Agent {agent_id} 節點執行時間: {node_duration:.4f}秒"
                         )
                 response_chunks.append(chunk)
+
+            # 組合所有 chunks 成為完整回應
+            full_content = ""
+            for chunk in response_chunks:
+                if hasattr(chunk, "content") and chunk.content:
+                    full_content += chunk.content
+
+            # 如果無法從 response_chunks 獲得有效內容，則使用最後一個 chunk
             response = response_chunks[-1] if response_chunks else None
+            if not full_content and response:
+                full_content = (
+                    response.content if hasattr(response, "content") else str(response)
+                )
+
+            # 如果仍然沒有內容，設置一個預設訊息
+            if not full_content:
+                full_content = f"Agent {agent_id} 未生成任何內容。"
+                logger.warning(f"Agent {agent_id} 未生成有效內容，使用預設訊息。")
         else:
             # 非串流模式，使用普通調用
             response = await llm_runnable.ainvoke([system_message, human_message])
+            full_content = (
+                response.content if hasattr(response, "content") else str(response)
+            )
             # 對於Lambda模式，記錄執行時間
             if is_lambda_mode:
                 node_end_time = perf_counter()
@@ -122,7 +142,8 @@ async def llm_agent_node(
                     f"Lambda模式: Agent {agent_id} 節點執行時間: {node_duration:.4f}秒"
                 )
 
-        content = response
+        # 確保 content 為字串
+        content = full_content
 
         # 計時結束
         end_perf = perf_counter()
@@ -151,7 +172,15 @@ async def llm_agent_node(
         logger.info(f"LLM Agent {agent_id} (openai) 執行完成")
         # 關鍵修正：回傳 key 必須為 llm2_output 或 llm3_output
         key = f"llm{agent_id}_output"
-        return {key: content}
+        # 確保回傳的是字串內容，不是物件
+        if isinstance(content, str):
+            return {key: content}
+        elif hasattr(content, "content"):
+            return {key: content.content}
+        else:
+            # 轉換為字串，確保有內容
+            content_str = str(content)
+            return {key: content_str if content_str else f"Agent {agent_id} 回應為空"}
     except Exception as e:
         end_perf = perf_counter()
         end_process = process_time()
@@ -196,16 +225,40 @@ async def aggregator_node(state: FlowState) -> dict[str, Any]:
 
     # 提取內容
     content_2 = ""
-    if hasattr(llm_2_resp, "content"):
-        content_2 = getattr(llm_2_resp, "content", "")
-    elif isinstance(llm_2_resp, dict) and "content" in llm_2_resp:
-        content_2 = llm_2_resp["content"]
+    if llm_2_resp is not None:
+        # 處理可能的不同回應格式
+        if hasattr(llm_2_resp, "content"):
+            content_2 = getattr(llm_2_resp, "content", "")
+        elif isinstance(llm_2_resp, dict):
+            if "content" in llm_2_resp:
+                content_2 = llm_2_resp["content"]
+            else:
+                # 記錄收到的整個結構以便診斷
+                logger.debug(f"llm2_output 格式異常: {llm_2_resp}")
+                content_2 = str(llm_2_resp)
+        elif isinstance(llm_2_resp, str):
+            content_2 = llm_2_resp
+        else:
+            logger.debug(f"無法處理的 llm2_output 類型: {type(llm_2_resp)}")
+            content_2 = str(llm_2_resp)
 
     content_3 = ""
-    if hasattr(llm_3_resp, "content"):
-        content_3 = getattr(llm_3_resp, "content", "")
-    elif isinstance(llm_3_resp, dict) and "content" in llm_3_resp:
-        content_3 = llm_3_resp["content"]
+    if llm_3_resp is not None:
+        # 處理可能的不同回應格式
+        if hasattr(llm_3_resp, "content"):
+            content_3 = getattr(llm_3_resp, "content", "")
+        elif isinstance(llm_3_resp, dict):
+            if "content" in llm_3_resp:
+                content_3 = llm_3_resp["content"]
+            else:
+                # 記錄收到的整個結構以便診斷
+                logger.debug(f"llm3_output 格式異常: {llm_3_resp}")
+                content_3 = str(llm_3_resp)
+        elif isinstance(llm_3_resp, str):
+            content_3 = llm_3_resp
+        else:
+            logger.debug(f"無法處理的 llm3_output 類型: {type(llm_3_resp)}")
+            content_3 = str(llm_3_resp)
 
     # 檢查是否有內容
     if not content_2.strip() and not content_3.strip():
@@ -253,6 +306,14 @@ async def final_llm_node(state: FlowState) -> dict[Literal["final_output"], str]
     is_lambda_mode = state.get("執行模式") == "Lambda串流模式"
     lambda_global_start = state.get("lambda_global_start_time", None)
     node_start_time = perf_counter()  # 記錄節點開始時間
+
+    # 檢查合併的輸出是否為空
+    if not merged_output:
+        logger.warning("Final LLM: 聚合內容為空")
+        if is_lambda_mode:
+            # 對於 Lambda 模式，不執行 LLM 調用，直接回傳錯誤訊息
+            lambda_node_timings["Final_LLM"] = 0.0  # 設置為 0 表示沒有實際執行
+            return {"final_output": "無法生成回應：上游處理節點未返回有效內容。"}
 
     # 獲取執行模式和串流模式
     exec_mode = state.get("執行模式", "未知")
@@ -501,7 +562,7 @@ def save_performance_data() -> None:
                 stream_modes.add(entry["串流模式"])
             if entry.get("節點"):
                 node_types.add(entry["節點"])
-
+ 
         # 確定最可能的執行模式
         most_likely_exec_mode = None
         if "Lambda轉出串流" in exec_modes:
@@ -718,7 +779,7 @@ async def run_sequential(initial_message: str, use_streaming: bool = True):
 
     initial_state: FlowState = {
         "source_input": initial_message,
-        "use_streaming": mode,
+        "use_streaming": True if mode == "串流" else False,
         "執行模式": "順序模式",
         "llm_type": "openai",
     }
@@ -973,7 +1034,7 @@ async def run_parallel(initial_message: str, use_streaming: bool = True):
 
     initial_state: FlowState = {
         "source_input": initial_message,
-        "use_streaming": mode,
+        "use_streaming": True if mode == "串流" else False,
         "執行模式": "並行模式",
         "llm_type": "openai",
     }
@@ -1097,7 +1158,7 @@ async def run_true_parallel(initial_message: str, use_streaming: bool = True):
     initial_state: FlowState = {
         "source_input": initial_message,
         "use_streaming": use_streaming,
-        "執行模式": "真正並行執行",
+        "執行模式": "真正並行模式",
         "llm_type": "openai",
     }
     logger.info(f"初始查詢: {initial_message}")
@@ -1281,10 +1342,16 @@ async def run_lambda_streaming(initial_message: str):
                 result = await first_agent
                 agent_id = 2 if first_agent == agent2_task else 3
                 logger.info(f"Agent {agent_id} 首先完成，繼續處理")
+                logger.info(f"第一個完成的 Agent {agent_id} 結果: {result}")
 
-                # 記錄第一個代理的完成時間（但不是轉出點）
-                agent_done_time = perf_counter() - global_start_perf
-                logger.info(f"第一個代理完成時間: {agent_done_time:.4f}秒")
+                # 確保結果被添加到 initial_state
+                if isinstance(result, dict):
+                    for k, v in result.items():
+                        initial_state[k] = v
+
+                    # 記錄第一個代理的完成時間（但不是轉出點）
+                    agent_done_time = perf_counter() - global_start_perf
+                    logger.info(f"第一個代理完成時間: {agent_done_time:.4f}秒")
 
                 # 確保將第一個完成的代理時間添加到 lambda_node_timings
                 if f"Agent_{agent_id}" not in lambda_node_timings:
@@ -1303,10 +1370,19 @@ async def run_lambda_streaming(initial_message: str):
                         )
                         if other_done:
                             other_agent = list(other_done)[0]
-                            # 獲取結果但不使用，只是確保任務已完成
-                            _ = await other_agent
+                            # 獲取結果並添加到 initial_state
+                            other_result = await other_agent
                             other_agent_id = 3 if agent_id == 2 else 2
                             logger.info(f"Agent {other_agent_id} 也完成了")
+                            logger.info(
+                                f"第二個完成的 Agent {other_agent_id} 結果: {other_result}"
+                            )
+
+                            # 確保第二個代理的結果也被添加到 initial_state
+                            if isinstance(other_result, dict):
+                                for k, v in other_result.items():
+                                    initial_state[k] = v
+
                             # 記錄第二個代理的時間
                             other_agent_time = perf_counter() - global_start_perf
                             if f"Agent_{other_agent_id}" not in lambda_node_timings:
@@ -1335,25 +1411,60 @@ async def run_lambda_streaming(initial_message: str):
             if task.done():
                 try:
                     result = task.result()
+                    logger.info(f"獲取到的任務結果: {result}")
                     if isinstance(result, dict):
                         for k, v in result.items():
+                            # 確保 llm2_output 和 llm3_output 正確設置
                             if k not in combined_state:
                                 combined_state[k] = v
                 except Exception as e:
                     logger.error(f"獲取任務結果時發生錯誤: {e}")
 
+        # 檢查並記錄 llm2_output 和 llm3_output 的狀態
+        logger.info(f"llm2_output 存在: {'llm2_output' in combined_state}")
+        logger.info(f"llm3_output 存在: {'llm3_output' in combined_state}")
+        if "llm2_output" in combined_state:
+            logger.info(f"llm2_output 類型: {type(combined_state['llm2_output'])}")
+        if "llm3_output" in combined_state:
+            logger.info(f"llm3_output 類型: {type(combined_state['llm3_output'])}")
+
         # 執行聚合節點
-        await aggregator_node(combined_state)
+        aggregator_result = await aggregator_node(combined_state)
+
+        # 將聚合節點的結果合併回 combined_state
+        if isinstance(aggregator_result, dict):
+            for k, v in aggregator_result.items():
+                combined_state[k] = v
+
+        # 額外檢查合併後的輸出
+        logger.info(f"聚合節點結果: {aggregator_result}")
+        logger.info(f"merged_output 存在: {'merged_output' in combined_state}")
+        if "merged_output" in combined_state:
+            logger.info(
+                f"merged_output 長度: {len(str(combined_state['merged_output']))}"
+            )
 
         # 檢查是否 Final LLM 會提前退出
-        if not combined_state.get("merged_output"):
+        if (
+            not combined_state.get("merged_output")
+            or combined_state.get("merged_output")
+            == "兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。"
+        ):
             # 如果聚合內容為空，Final LLM 會提前退出，則記錄一個模擬值
             lambda_node_timings["Final_LLM"] = 0.0  # 設置為 0 表示實際未執行
             logger.info("Final LLM 節點將提前退出，設置計時為 0.0")
 
         # 執行最終 LLM - 這裡會計算第一個 token 的時間
         logger.info("Lambda 模式執行最終 LLM")
-        await final_llm_node(combined_state)
+        final_result = await final_llm_node(combined_state)
+
+        # 將最終節點的結果合併回 combined_state
+        if isinstance(final_result, dict):
+            for k, v in final_result.items():
+                combined_state[k] = v
+
+        logger.info(f"最終 LLM 節點結果: {final_result}")
+        logger.info(f"final_output 存在: {'final_output' in combined_state}")
 
         # 計算 Lambda 節點總執行時間
         lambda_node_total_time = calculate_lambda_total_node_time()
@@ -1458,9 +1569,9 @@ if __name__ == "__main__":
     # 執行順序/並行、串流/非串流共 4 組
     import gc
     import time
-    
+
     from prompt import api_request_data
-    
+
     # 首先執行 Lambda 串流模式測試
     print("\n=== 測試: Lambda串流模式 ===")
     try:
