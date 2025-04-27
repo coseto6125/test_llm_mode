@@ -1,0 +1,2408 @@
+2025-04-27 13:46:08.770 | INFO     | __main__:<module>:329 - 系統不支援 uvloop，使用標準事件循環
+2025-04-27 13:46:34.129 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 13:46:50.926 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 13:46:50.942 | INFO     | __main__:build_graph:255 - Langgraph 圖構建完成
+2025-04-27 13:46:53.506 | INFO     | __main__:main:269 - 開始執行 Langgraph 流程，初始訊息: 你好...
+2025-04-27 13:46:53.528 | INFO     | __main__:start_branch:238 - 流程開始，準備分支到 LLM Agent 2 和 3
+2025-04-27 13:46:53.534 | INFO     | __main__:llm_agent_node:107 - 進入 LLM Agent 137 節點
+2025-04-27 13:46:53.535 | INFO     | __main__:llm_agent_node:107 - 進入 LLM Agent 137 節點
+2025-04-27 13:46:53.547 | ERROR    | __main__:llm_agent_node:119 - LLM Agent 137 執行時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\site-packages\aiodns\__init__.py", line 58, in __init__
+    import winloop
+
+ModuleNotFoundError: No module named 'winloop'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x00000278D3C41DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x00000278D3C95D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x00000278D3C41DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x00000278D64A7380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x00000278D64A7100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x00000278D60E60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x00000278D5DC38A0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x00000278D60E5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x00000278D5DC38A0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x00000278D60E58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x00000278D5DC38A0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 335, in <module>
+    asyncio.run(main(test_message))
+    │       │   │    └ '你好'
+    │       │   └ <function main at 0x00000278DC267EC0>
+    │       └ <function run at 0x00000278D6703CE0>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x00000278DC24CE00>
+           │      └ <function Runner.run at 0x00000278D700EF20>
+           └ <asyncio.runners.Runner object at 0x00000278DBCA8980>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:275> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x00000278D700CA40>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x00000278DBCA8980>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function ProactorEventLoop.run_forever at 0x00000278D7096160>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000278D700E7A0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x00000278D6F868E0>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 871, in _consume_aiter
+    async for chunk in it:
+                       └ <async_generator object LogStreamCallbackHandler.tap_output_aiter at 0x00000278DC284140>
+  File "c:\Python312\Lib\site-packages\langchain_core\tracers\log_stream.py", line 279, in tap_output_aiter
+    async for chunk in output:
+                       └ <async_generator object Runnable.atransform at 0x00000278DB5F3120>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1461, in atransform
+    async for ichunk in input:
+                        └ <async_generator object Runnable.astream at 0x00000278D9B30A90>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1024, in astream
+    yield await self.ainvoke(input, config, **kwargs)
+                │    │       │      │         └ {}
+                │    │       │      └ {'callbacks': <langchain_core.callbacks.manager.AsyncCallbackManager object at 0x00000278D9B4EFC0>, 'metadata': {'langgraph_s...
+                │    │       └ {'source_input': '你好'}
+                │    └ <function RunnableCallable.ainvoke at 0x00000278DB9D51C0>
+                └ llm_agent_2(tags=None, recurse=True, explode_args=False, func_accepts_config=False, func_accepts={})
+  File "c:\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 440, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'source_input': '你好'},)
+                │    └ functools.partial(<function llm_agent_node at 0x00000278D4046020>, agent_id=137, raccoon_runnable=RaccoonRunnable(client=<rac...
+                └ llm_agent_2(tags=None, recurse=True, explode_args=False, func_accepts_config=False, func_accepts={})
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 115, in llm_agent_node
+    response = await raccoon_runnable.as_runnable().ainvoke(message)
+                     │                │                     └ '你好'
+                     │                └ <function RaccoonRunnable.as_runnable at 0x00000278DC267880>
+                     └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x00000278DC243A00>, brand_id='137', stream=True)
+
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4783, in ainvoke
+    return await self._acall_with_config(
+                 │    └ <function Runnable._acall_with_config at 0x00000278D86B84A0>
+                 └ RunnableLambda(afunc=_invoke_raccoon)
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1981, in _acall_with_config
+    output: Output = await coro_with_context(coro, context)
+                           │                 │     └ <_contextvars.Context object at 0x00000278DC28A400>
+                           │                 └ <coroutine object RunnableLambda._ainvoke at 0x00000278DC1A38A0>
+                           └ <function coro_with_context at 0x00000278D87927A0>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x00000278D87B1300>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 69, in _invoke_raccoon
+    async with self.client as client:
+               │    └ <raccoon_client.RaccoonAIClient object at 0x00000278DC243A00>
+               └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x00000278DC243A00>, brand_id='137', stream=True)
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\raccoon_client.py", line 37, in __aenter__
+    self.session = self._create_session()
+    │    │         │    └ <staticmethod(<function RaccoonAIClient._create_session at 0x00000278DC267560>)>
+    │    │         └ <raccoon_client.RaccoonAIClient object at 0x00000278DC243A00>
+    │    └ <member 'session' of 'RaccoonAIClient' objects>
+    └ <raccoon_client.RaccoonAIClient object at 0x00000278DC243A00>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\raccoon_client.py", line 57, in _create_session
+    connector=aiohttp.TCPConnector(
+              │       └ <class 'aiohttp.connector.TCPConnector'>
+              └ <module 'aiohttp' from 'c:\\Python312\\Lib\\site-packages\\aiohttp\\__init__.py'>
+
+  File "c:\Python312\Lib\site-packages\aiohttp\connector.py", line 869, in __init__
+    resolver = DefaultResolver(loop=self._loop)
+               │                    │    └ <ProactorEventLoop running=True closed=False debug=False>
+               │                    └ <aiohttp.connector.TCPConnector object at 0x00000278D9B4F9B0>
+               └ <class 'aiohttp.resolver.AsyncResolver'>
+  File "c:\Python312\Lib\site-packages\aiohttp\resolver.py", line 93, in __init__
+    self._resolver = aiodns.DNSResolver(*args, **kwargs)
+    │                │      │            │       └ {}
+    │                │      │            └ ()
+    │                │      └ <class 'aiodns.DNSResolver'>
+    │                └ <module 'aiodns' from 'c:\\Python312\\Lib\\site-packages\\aiodns\\__init__.py'>
+    └ <aiohttp.resolver.AsyncResolver object at 0x00000278D9B4F050>
+  File "c:\Python312\Lib\site-packages\aiodns\__init__.py", line 63, in __init__
+    raise RuntimeError(
+
+RuntimeError: aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86
+2025-04-27 13:46:53.616 | ERROR    | __main__:llm_agent_node:119 - LLM Agent 137 執行時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\site-packages\aiodns\__init__.py", line 58, in __init__
+    import winloop
+
+ModuleNotFoundError: No module named 'winloop'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x00000278D3C41DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x00000278D3C95D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x00000278D3C41DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x00000278D64A7380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x00000278D64A7100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x00000278D60E60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x00000278D5DC38A0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x00000278D60E5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x00000278D5DC38A0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x00000278D60E58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x00000278D5DC38A0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 335, in <module>
+    asyncio.run(main(test_message))
+    │       │   │    └ '你好'
+    │       │   └ <function main at 0x00000278DC267EC0>
+    │       └ <function run at 0x00000278D6703CE0>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x00000278DC24CE00>
+           │      └ <function Runner.run at 0x00000278D700EF20>
+           └ <asyncio.runners.Runner object at 0x00000278DBCA8980>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:275> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x00000278D700CA40>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x00000278DBCA8980>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function ProactorEventLoop.run_forever at 0x00000278D7096160>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000278D700E7A0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x00000278D6F868E0>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 871, in _consume_aiter
+    async for chunk in it:
+                       └ <async_generator object LogStreamCallbackHandler.tap_output_aiter at 0x00000278DC284640>
+  File "c:\Python312\Lib\site-packages\langchain_core\tracers\log_stream.py", line 279, in tap_output_aiter
+    async for chunk in output:
+                       └ <async_generator object Runnable.atransform at 0x00000278DB5F3230>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1461, in atransform
+    async for ichunk in input:
+                        └ <async_generator object Runnable.astream at 0x00000278D9B314E0>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1024, in astream
+    yield await self.ainvoke(input, config, **kwargs)
+                │    │       │      │         └ {}
+                │    │       │      └ {'callbacks': <langchain_core.callbacks.manager.AsyncCallbackManager object at 0x00000278D9B4FE60>, 'metadata': {'langgraph_s...
+                │    │       └ {'source_input': '你好'}
+                │    └ <function RunnableCallable.ainvoke at 0x00000278DB9D51C0>
+                └ llm_agent_3(tags=None, recurse=True, explode_args=False, func_accepts_config=False, func_accepts={})
+  File "c:\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 440, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'source_input': '你好'},)
+                │    └ functools.partial(<function llm_agent_node at 0x00000278D4046020>, agent_id=137, raccoon_runnable=RaccoonRunnable(client=<rac...
+                └ llm_agent_3(tags=None, recurse=True, explode_args=False, func_accepts_config=False, func_accepts={})
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 115, in llm_agent_node
+    response = await raccoon_runnable.as_runnable().ainvoke(message)
+                     │                │                     └ '你好'
+                     │                └ <function RaccoonRunnable.as_runnable at 0x00000278DC267880>
+                     └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x00000278D9F5CB80>, brand_id='137', stream=True)
+
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4783, in ainvoke
+    return await self._acall_with_config(
+                 │    └ <function Runnable._acall_with_config at 0x00000278D86B84A0>
+                 └ RunnableLambda(afunc=_invoke_raccoon)
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1981, in _acall_with_config
+    output: Output = await coro_with_context(coro, context)
+                           │                 │     └ <_contextvars.Context object at 0x00000278DC29A080>
+                           │                 └ <coroutine object RunnableLambda._ainvoke at 0x00000278DC1A3A00>
+                           └ <function coro_with_context at 0x00000278D87927A0>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x00000278D87B1300>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 69, in _invoke_raccoon
+    async with self.client as client:
+               │    └ <raccoon_client.RaccoonAIClient object at 0x00000278D9F5CB80>
+               └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x00000278D9F5CB80>, brand_id='137', stream=True)
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\raccoon_client.py", line 37, in __aenter__
+    self.session = self._create_session()
+    │    │         │    └ <staticmethod(<function RaccoonAIClient._create_session at 0x00000278DC267560>)>
+    │    │         └ <raccoon_client.RaccoonAIClient object at 0x00000278D9F5CB80>
+    │    └ <member 'session' of 'RaccoonAIClient' objects>
+    └ <raccoon_client.RaccoonAIClient object at 0x00000278D9F5CB80>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\raccoon_client.py", line 57, in _create_session
+    connector=aiohttp.TCPConnector(
+              │       └ <class 'aiohttp.connector.TCPConnector'>
+              └ <module 'aiohttp' from 'c:\\Python312\\Lib\\site-packages\\aiohttp\\__init__.py'>
+
+  File "c:\Python312\Lib\site-packages\aiohttp\connector.py", line 869, in __init__
+    resolver = DefaultResolver(loop=self._loop)
+               │                    │    └ <ProactorEventLoop running=True closed=False debug=False>
+               │                    └ <aiohttp.connector.TCPConnector object at 0x00000278D9B7C500>
+               └ <class 'aiohttp.resolver.AsyncResolver'>
+  File "c:\Python312\Lib\site-packages\aiohttp\resolver.py", line 93, in __init__
+    self._resolver = aiodns.DNSResolver(*args, **kwargs)
+    │                │      │            │       └ {}
+    │                │      │            └ ()
+    │                │      └ <class 'aiodns.DNSResolver'>
+    │                └ <module 'aiodns' from 'c:\\Python312\\Lib\\site-packages\\aiodns\\__init__.py'>
+    └ <aiohttp.resolver.AsyncResolver object at 0x00000278D9B7F920>
+  File "c:\Python312\Lib\site-packages\aiodns\__init__.py", line 63, in __init__
+    raise RuntimeError(
+
+RuntimeError: aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86
+2025-04-27 13:46:53.639 | INFO     | __main__:aggregator_node:125 - 進入 Aggregator 節點
+2025-04-27 13:46:53.639 | INFO     | __main__:aggregator_node:166 - Aggregator 節點執行完成
+2025-04-27 13:46:53.639 | DEBUG    | __main__:aggregator_node:167 - 聚合後內容: 來自 Agent 2 的觀點:
+
+
+來自 Agent 3 的觀點:
+...
+2025-04-27 13:46:53.645 | INFO     | __main__:final_llm_node:174 - 進入 Final LLM 節點
+2025-04-27 13:46:57.579 | INFO     | __main__:final_llm_node:204 - Final LLM 串流輸出完成
+2025-04-27 13:46:57.585 | ERROR    | __main__:main:316 - 未能獲取最終狀態
+2025-04-27 13:48:50.211 | INFO     | __main__:<module>:314 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 13:48:50.213 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 13:48:50.213 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 13:48:50.227 | INFO     | __main__:build_graph:256 - Langgraph 圖構建完成
+2025-04-27 13:48:50.227 | INFO     | __main__:main:270 - 開始執行 Langgraph 流程，初始訊息: 你好...
+2025-04-27 13:48:50.227 | INFO     | __main__:main:277 - Windows 系統下使用 ainvoke 模式
+2025-04-27 13:48:50.239 | INFO     | __main__:start_branch:239 - 流程開始，準備分支到 LLM Agent 2 和 3
+2025-04-27 13:48:50.242 | INFO     | __main__:llm_agent_node:108 - 進入 LLM Agent 137 節點
+2025-04-27 13:48:50.243 | INFO     | __main__:llm_agent_node:108 - 進入 LLM Agent 137 節點
+2025-04-27 13:48:50.248 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: 你好...
+2025-04-27 13:48:50.248 | DEBUG    | raccoon_client:stream_chat:180 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 13:48:50.253 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: 你好...
+2025-04-27 13:48:50.253 | DEBUG    | raccoon_client:stream_chat:180 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 13:48:59.508 | DEBUG    | raccoon_client:stream_chat:250 - Raccoon AI API (串流) 請求完成，耗時: 9.2601 秒
+2025-04-27 13:48:59.509 | DEBUG    | __main__:_invoke_raccoon:84 - Raccoon AI 串流回應完成 (Brand ID: 137)
+2025-04-27 13:48:59.511 | INFO     | __main__:llm_agent_node:117 - LLM Agent 137 執行完成
+2025-04-27 13:49:05.055 | DEBUG    | raccoon_client:stream_chat:250 - Raccoon AI API (串流) 請求完成，耗時: 14.8016 秒
+2025-04-27 13:49:05.056 | DEBUG    | __main__:_invoke_raccoon:84 - Raccoon AI 串流回應完成 (Brand ID: 137)
+2025-04-27 13:49:05.057 | INFO     | __main__:llm_agent_node:117 - LLM Agent 137 執行完成
+2025-04-27 13:49:05.058 | INFO     | __main__:aggregator_node:126 - 進入 Aggregator 節點
+2025-04-27 13:49:05.059 | INFO     | __main__:aggregator_node:167 - Aggregator 節點執行完成
+2025-04-27 13:49:05.059 | DEBUG    | __main__:aggregator_node:168 - 聚合後內容: 來自 Agent 2 的觀點:
+
+
+來自 Agent 3 的觀點:
+...
+2025-04-27 13:49:05.060 | INFO     | __main__:final_llm_node:175 - 進入 Final LLM 節點
+2025-04-27 13:49:08.951 | INFO     | __main__:final_llm_node:205 - Final LLM 串流輸出完成
+2025-04-27 13:49:08.952 | INFO     | __main__:main:279 - Langgraph 流程執行完畢
+2025-04-27 13:49:08.953 | DEBUG    | __main__:main:299 - 最終狀態: {'source_input': '你好', 'merged_output': '來自 Agent 2 的觀點:\n\n\n來自 Agent 3 的觀點:\n'}
+2025-04-27 13:51:25.429 | INFO     | __main__:<module>:347 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 13:51:25.430 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 13:51:25.430 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 13:51:25.434 | INFO     | __main__:build_graph:289 - Langgraph 圖構建完成
+2025-04-27 13:51:25.434 | INFO     | __main__:main:303 - 開始執行 Langgraph 流程，初始訊息: 你好...
+2025-04-27 13:51:25.434 | INFO     | __main__:main:310 - Windows 系統下使用 ainvoke 模式
+2025-04-27 13:51:25.438 | INFO     | __main__:start_branch:272 - 流程開始，準備分支到 LLM Agent 2 和 3
+2025-04-27 13:51:25.438 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 13:51:25.438 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 13:51:25.442 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: 你好...
+2025-04-27 13:51:25.442 | DEBUG    | __main__:_invoke_raccoon:78 - 開始串流處理 (Brand ID: 137)
+2025-04-27 13:51:25.442 | DEBUG    | raccoon_client:stream_chat:180 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 13:51:25.445 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: 你好...
+2025-04-27 13:51:25.445 | DEBUG    | __main__:_invoke_raccoon:78 - 開始串流處理 (Brand ID: 137)
+2025-04-27 13:51:25.445 | DEBUG    | raccoon_client:stream_chat:180 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 13:51:34.514 | DEBUG    | raccoon_client:stream_chat:250 - Raccoon AI API (串流) 請求完成，耗時: 9.0721 秒
+2025-04-27 13:51:34.514 | DEBUG    | __main__:_invoke_raccoon:88 - Raccoon AI 串流回應完成 (Brand ID: 137), 收集到內容長度: 0
+2025-04-27 13:51:34.515 | WARNING  | __main__:_invoke_raccoon:93 - Agent 137 回應為空，使用預設訊息
+2025-04-27 13:51:34.515 | INFO     | __main__:llm_agent_node:129 - LLM Agent 137 執行完成
+2025-04-27 13:51:38.409 | DEBUG    | raccoon_client:stream_chat:250 - Raccoon AI API (串流) 請求完成，耗時: 12.9634 秒
+2025-04-27 13:51:38.409 | DEBUG    | __main__:_invoke_raccoon:88 - Raccoon AI 串流回應完成 (Brand ID: 137), 收集到內容長度: 0
+2025-04-27 13:51:38.410 | WARNING  | __main__:_invoke_raccoon:93 - Agent 137 回應為空，使用預設訊息
+2025-04-27 13:51:38.410 | INFO     | __main__:llm_agent_node:129 - LLM Agent 137 執行完成
+2025-04-27 13:51:38.411 | INFO     | __main__:aggregator_node:138 - 進入 Aggregator 節點
+2025-04-27 13:51:38.411 | WARNING  | __main__:aggregator_node:179 - 兩個 Agent 的回應均為空
+2025-04-27 13:51:38.411 | INFO     | __main__:aggregator_node:185 - Aggregator 節點執行完成
+2025-04-27 13:51:38.411 | DEBUG    | __main__:aggregator_node:186 - 聚合後內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 13:51:38.412 | INFO     | __main__:final_llm_node:193 - 進入 Final LLM 節點
+2025-04-27 13:51:38.412 | DEBUG    | __main__:final_llm_node:208 - Final LLM 收到的聚合內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 13:51:38.412 | WARNING  | __main__:final_llm_node:212 - 聚合內容缺少實質內容，使用預設訊息替代
+2025-04-27 13:51:45.936 | INFO     | __main__:final_llm_node:238 - Final LLM 串流輸出完成
+2025-04-27 13:51:45.936 | INFO     | __main__:main:312 - Langgraph 流程執行完畢
+2025-04-27 13:51:45.937 | DEBUG    | __main__:main:332 - 最終狀態: {'source_input': '你好', 'merged_output': '兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。'}
+2025-04-27 13:57:52.964 | INFO     | __main__:<module>:347 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 13:58:20.845 | INFO     | __main__:<module>:347 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 13:58:20.848 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 13:58:20.848 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 13:58:20.851 | INFO     | __main__:build_graph:289 - Langgraph 圖構建完成
+2025-04-27 13:58:38.237 | INFO     | __main__:<module>:347 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 13:58:38.239 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 13:58:38.239 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 13:58:38.243 | INFO     | __main__:build_graph:289 - Langgraph 圖構建完成
+2025-04-27 13:58:38.244 | INFO     | __main__:main:303 - 開始執行 Langgraph 流程，初始訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 13:58:38.244 | INFO     | __main__:main:310 - Windows 系統下使用 ainvoke 模式
+2025-04-27 13:58:38.247 | INFO     | __main__:start_branch:272 - 流程開始，準備分支到 LLM Agent 2 和 3
+2025-04-27 13:58:38.248 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 13:58:38.248 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 13:58:38.252 | ERROR    | __main__:_invoke_raccoon:107 - 調用 Raccoon AI (Brand ID: 137) 時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x000002898A6D20C0>
+    │       └ <function run at 0x0000028984D72FC0>
+    └ <module 'asyncio' from 'C:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x000002898A5F79C0>
+           │      └ <function Runner.run at 0x0000028985238900>
+           └ <asyncio.runners.Runner object at 0x0000028988D59D00>
+  File "C:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000028985232520>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000028988D59D00>
+  File "C:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000028985232480>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000289852382C0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000028984D4E700>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000028988A344C0>()>
+  File "C:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000028988A344C0>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000028988A344C0>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000028988A344C0>()>
+  File "C:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x0000028985F79EE0>
+
+> File "c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x000002898A6B1180>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x0000028988FCBD80>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='c:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 13:58:38.256 | ERROR    | __main__:_invoke_raccoon:107 - 調用 Raccoon AI (Brand ID: 137) 時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x000002898A6D20C0>
+    │       └ <function run at 0x0000028984D72FC0>
+    └ <module 'asyncio' from 'C:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x000002898A5F79C0>
+           │      └ <function Runner.run at 0x0000028985238900>
+           └ <asyncio.runners.Runner object at 0x0000028988D59D00>
+  File "C:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000028985232520>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000028988D59D00>
+  File "C:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000028985232480>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000289852382C0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000028984D4E700>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000028988A347F0>()>
+  File "C:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000028988A347F0>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000028988A347F0>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000028988A347F0>()>
+  File "C:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x0000028985F79EE0>
+
+> File "c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x000002898A6B0A00>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x0000028988FCBD80>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='c:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 13:58:38.258 | ERROR    | __main__:llm_agent_node:132 - LLM Agent 137 執行時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x000002898A6D20C0>
+    │       └ <function run at 0x0000028984D72FC0>
+    └ <module 'asyncio' from 'C:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x000002898A5F79C0>
+           │      └ <function Runner.run at 0x0000028985238900>
+           └ <asyncio.runners.Runner object at 0x0000028988D59D00>
+  File "C:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000028985232520>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000028988D59D00>
+  File "C:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000028985232480>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000289852382C0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000028984D4E700>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 440, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'source_input': {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'bra...
+                │    └ functools.partial(<function llm_agent_node at 0x000002898A6894E0>, agent_id=137, raccoon_runnable=RaccoonRunnable(client=<rac...
+                └ llm_agent_2(tags=None, recurse=True, explode_args=False, func_accepts_config=False, func_accepts={})
+
+> File "c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 128, in llm_agent_node
+    response = await raccoon_runnable.as_runnable().ainvoke(message)
+                     │                │                     └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+                     │                └ <function RaccoonRunnable.as_runnable at 0x000002898A6D19E0>
+                     └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x000002898A6B1180>, brand_id='137', stream=True)
+
+  File "C:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4783, in ainvoke
+    return await self._acall_with_config(
+                 │    └ <function Runnable._acall_with_config at 0x000002898722CE00>
+                 └ RunnableLambda(afunc=_invoke_raccoon)
+  File "C:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1981, in _acall_with_config
+    output: Output = await coro_with_context(coro, context)
+                           │                 │     └ <_contextvars.Context object at 0x0000028988248DC0>
+                           │                 └ <coroutine object RunnableLambda._ainvoke at 0x0000028989219FE0>
+                           └ <function coro_with_context at 0x0000028985FBB420>
+  File "C:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x0000028985F79EE0>
+
+  File "c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x000002898A6B1180>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x0000028988FCBD80>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='c:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 13:58:38.261 | ERROR    | __main__:llm_agent_node:132 - LLM Agent 137 執行時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x000002898A6D20C0>
+    │       └ <function run at 0x0000028984D72FC0>
+    └ <module 'asyncio' from 'C:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x000002898A5F79C0>
+           │      └ <function Runner.run at 0x0000028985238900>
+           └ <asyncio.runners.Runner object at 0x0000028988D59D00>
+  File "C:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000028985232520>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000028988D59D00>
+  File "C:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000028985232480>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000289852382C0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000028984D4E700>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 440, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'source_input': {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'bra...
+                │    └ functools.partial(<function llm_agent_node at 0x000002898A6894E0>, agent_id=137, raccoon_runnable=RaccoonRunnable(client=<rac...
+                └ llm_agent_3(tags=None, recurse=True, explode_args=False, func_accepts_config=False, func_accepts={})
+
+> File "c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 128, in llm_agent_node
+    response = await raccoon_runnable.as_runnable().ainvoke(message)
+                     │                │                     └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+                     │                └ <function RaccoonRunnable.as_runnable at 0x000002898A6D19E0>
+                     └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x000002898A6B0A00>, brand_id='137', stream=True)
+
+  File "C:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4783, in ainvoke
+    return await self._acall_with_config(
+                 │    └ <function Runnable._acall_with_config at 0x000002898722CE00>
+                 └ RunnableLambda(afunc=_invoke_raccoon)
+  File "C:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1981, in _acall_with_config
+    output: Output = await coro_with_context(coro, context)
+                           │                 │     └ <_contextvars.Context object at 0x000002898A5E4A00>
+                           │                 └ <coroutine object RunnableLambda._ainvoke at 0x000002898921A2A0>
+                           └ <function coro_with_context at 0x0000028985FBB420>
+  File "C:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x0000028985F79EE0>
+
+  File "c:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x000002898A6B0A00>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x0000028988FCBD80>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='c:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 13:58:38.264 | INFO     | __main__:aggregator_node:138 - 進入 Aggregator 節點
+2025-04-27 13:58:38.264 | WARNING  | __main__:aggregator_node:179 - 兩個 Agent 的回應均為空
+2025-04-27 13:58:38.264 | INFO     | __main__:aggregator_node:185 - Aggregator 節點執行完成
+2025-04-27 13:58:38.264 | DEBUG    | __main__:aggregator_node:186 - 聚合後內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 13:58:38.265 | INFO     | __main__:final_llm_node:193 - 進入 Final LLM 節點
+2025-04-27 13:58:38.265 | DEBUG    | __main__:final_llm_node:208 - Final LLM 收到的聚合內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 13:58:38.265 | WARNING  | __main__:final_llm_node:212 - 聚合內容缺少實質內容，使用預設訊息替代
+2025-04-27 13:58:45.055 | INFO     | __main__:final_llm_node:238 - Final LLM 串流輸出完成
+2025-04-27 13:58:45.055 | INFO     | __main__:main:312 - Langgraph 流程執行完畢
+2025-04-27 13:58:45.056 | DEBUG    | __main__:main:332 - 最終狀態: {'source_input': {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}, 'merged_output': '兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。'}
+2025-04-27 13:59:15.844 | INFO     | __main__:<module>:347 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 13:59:15.847 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 13:59:15.847 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 13:59:15.862 | INFO     | __main__:build_graph:289 - Langgraph 圖構建完成
+2025-04-27 13:59:15.862 | INFO     | __main__:main:303 - 開始執行 Langgraph 流程，初始訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 13:59:24.317 | INFO     | __main__:main:310 - Windows 系統下使用 ainvoke 模式
+2025-04-27 13:59:25.084 | INFO     | __main__:start_branch:272 - 流程開始，準備分支到 LLM Agent 2 和 3
+2025-04-27 13:59:25.086 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 13:59:25.087 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 13:59:25.093 | ERROR    | __main__:_invoke_raccoon:107 - 調用 Raccoon AI (Brand ID: 137) 時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x0000027BC6DF1DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x0000027BC6E45D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x0000027BC6DF1DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x0000027BC96A3380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x0000027BC96A3100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x0000027BC92F60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x0000027BC8DDF190, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x0000027BC92F5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x0000027BC8DDF190, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x0000027BC92F58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x0000027BC8DDF190, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x0000027BCF3A7E20>
+    │       └ <function run at 0x0000027BC97EBD80>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x0000027BCEE4FB00>
+           │      └ <function Runner.run at 0x0000027BCA1E2E80>
+           └ <asyncio.runners.Runner object at 0x0000027BCEABAF30>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000027BCA1E09A0>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000027BCEABAF30>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000027BCA1E0900>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000027BCA1E2700>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000027BCA15E840>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000027BCCD16A40>()>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000027BCCD16A40>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000027BCCD16A40>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000027BCCD16A40>()>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x0000027BCB981260>
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x0000027BCF383B20>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x0000027BCEC5D940>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='C:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 13:59:25.109 | ERROR    | __main__:_invoke_raccoon:107 - 調用 Raccoon AI (Brand ID: 137) 時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x0000027BC6DF1DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x0000027BC6E45D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x0000027BC6DF1DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x0000027BC96A3380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x0000027BC96A3100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x0000027BC92F60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x0000027BC8DDF190, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x0000027BC92F5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x0000027BC8DDF190, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x0000027BC92F58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x0000027BC8DDF190, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x0000027BCF3A7E20>
+    │       └ <function run at 0x0000027BC97EBD80>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x0000027BCEE4FB00>
+           │      └ <function Runner.run at 0x0000027BCA1E2E80>
+           └ <asyncio.runners.Runner object at 0x0000027BCEABAF30>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000027BCA1E09A0>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000027BCEABAF30>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000027BCA1E0900>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000027BCA1E2700>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000027BCA15E840>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000027BCCD16A10>()>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000027BCCD16A10>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000027BCCD16A10>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000027BCCD16A10>()>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x0000027BCB981260>
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x0000027BCF383C40>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x0000027BCEC5D940>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='C:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 13:59:25.121 | ERROR    | __main__:llm_agent_node:132 - LLM Agent 137 執行時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x0000027BC6DF1DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x0000027BC6E45D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x0000027BC6DF1DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x0000027BC96A3380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x0000027BC96A3100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x0000027BC92F60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x0000027BC8DDF190, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x0000027BC92F5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x0000027BC8DDF190, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x0000027BC92F58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x0000027BC8DDF190, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x0000027BCF3A7E20>
+    │       └ <function run at 0x0000027BC97EBD80>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x0000027BCEE4FB00>
+           │      └ <function Runner.run at 0x0000027BCA1E2E80>
+           └ <asyncio.runners.Runner object at 0x0000027BCEABAF30>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000027BCA1E09A0>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000027BCEABAF30>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000027BCA1E0900>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000027BCA1E2700>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000027BCA15E840>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 440, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'source_input': {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'bra...
+                │    └ functools.partial(<function llm_agent_node at 0x0000027BC71F6020>, agent_id=137, raccoon_runnable=RaccoonRunnable(client=<rac...
+                └ llm_agent_2(tags=None, recurse=True, explode_args=False, func_accepts_config=False, func_accepts={})
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 128, in llm_agent_node
+    response = await raccoon_runnable.as_runnable().ainvoke(message)
+                     │                │                     └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+                     │                └ <function RaccoonRunnable.as_runnable at 0x0000027BCF3A7240>
+                     └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x0000027BCF383B20>, brand_id='137', stream=True)
+
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4783, in ainvoke
+    return await self._acall_with_config(
+                 │    └ <function Runnable._acall_with_config at 0x0000027BCB888400>
+                 └ RunnableLambda(afunc=_invoke_raccoon)
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1981, in _acall_with_config
+    output: Output = await coro_with_context(coro, context)
+                           │                 │     └ <_contextvars.Context object at 0x0000027BCCDA31C0>
+                           │                 └ <coroutine object RunnableLambda._ainvoke at 0x0000027BCF2E2AE0>
+                           └ <function coro_with_context at 0x0000027BCB962700>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x0000027BCB981260>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x0000027BCF383B20>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x0000027BCEC5D940>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='C:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 13:59:25.139 | ERROR    | __main__:llm_agent_node:132 - LLM Agent 137 執行時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x0000027BC6DF1DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x0000027BC6E45D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x0000027BC6DF1DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x0000027BC96A3380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x0000027BC96A3100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x0000027BC92F60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x0000027BC8DDF190, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x0000027BC92F5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x0000027BC8DDF190, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x0000027BC92F58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x0000027BC8DDF190, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x0000027BCF3A7E20>
+    │       └ <function run at 0x0000027BC97EBD80>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x0000027BCEE4FB00>
+           │      └ <function Runner.run at 0x0000027BCA1E2E80>
+           └ <asyncio.runners.Runner object at 0x0000027BCEABAF30>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000027BCA1E09A0>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000027BCEABAF30>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000027BCA1E0900>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000027BCA1E2700>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000027BCA15E840>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 440, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'source_input': {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'bra...
+                │    └ functools.partial(<function llm_agent_node at 0x0000027BC71F6020>, agent_id=137, raccoon_runnable=RaccoonRunnable(client=<rac...
+                └ llm_agent_3(tags=None, recurse=True, explode_args=False, func_accepts_config=False, func_accepts={})
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 128, in llm_agent_node
+    response = await raccoon_runnable.as_runnable().ainvoke(message)
+                     │                │                     └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+                     │                └ <function RaccoonRunnable.as_runnable at 0x0000027BCF3A7240>
+                     └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x0000027BCF383C40>, brand_id='137', stream=True)
+
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4783, in ainvoke
+    return await self._acall_with_config(
+                 │    └ <function Runnable._acall_with_config at 0x0000027BCB888400>
+                 └ RunnableLambda(afunc=_invoke_raccoon)
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1981, in _acall_with_config
+    output: Output = await coro_with_context(coro, context)
+                           │                 │     └ <_contextvars.Context object at 0x0000027BCCCB8040>
+                           │                 └ <coroutine object RunnableLambda._ainvoke at 0x0000027BCF2E2DA0>
+                           └ <function coro_with_context at 0x0000027BCB962700>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x0000027BCB981260>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x0000027BCF383C40>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x0000027BCEC5D940>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='C:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 13:59:25.157 | INFO     | __main__:aggregator_node:138 - 進入 Aggregator 節點
+2025-04-27 13:59:25.158 | WARNING  | __main__:aggregator_node:179 - 兩個 Agent 的回應均為空
+2025-04-27 13:59:25.159 | INFO     | __main__:aggregator_node:185 - Aggregator 節點執行完成
+2025-04-27 13:59:25.159 | DEBUG    | __main__:aggregator_node:186 - 聚合後內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 13:59:25.161 | INFO     | __main__:final_llm_node:193 - 進入 Final LLM 節點
+2025-04-27 13:59:25.161 | DEBUG    | __main__:final_llm_node:208 - Final LLM 收到的聚合內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 13:59:25.161 | WARNING  | __main__:final_llm_node:212 - 聚合內容缺少實質內容，使用預設訊息替代
+2025-04-27 14:00:12.127 | INFO     | __main__:<module>:347 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 14:00:12.130 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:00:12.130 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:00:12.146 | INFO     | __main__:build_graph:289 - Langgraph 圖構建完成
+2025-04-27 14:00:12.146 | INFO     | __main__:main:303 - 開始執行 Langgraph 流程，初始訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:01:06.698 | INFO     | __main__:<module>:347 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 14:01:06.701 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:01:06.701 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:01:06.716 | INFO     | __main__:build_graph:289 - Langgraph 圖構建完成
+2025-04-27 14:01:06.717 | INFO     | __main__:main:303 - 開始執行 Langgraph 流程，初始訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:01:06.717 | INFO     | __main__:main:310 - Windows 系統下使用 ainvoke 模式
+2025-04-27 14:01:06.727 | INFO     | __main__:start_branch:272 - 流程開始，準備分支到 LLM Agent 2 和 3
+2025-04-27 14:01:06.731 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 14:01:06.732 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 14:01:06.737 | ERROR    | __main__:_invoke_raccoon:107 - 調用 Raccoon AI (Brand ID: 137) 時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x0000019C25611DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x0000019C25665D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x0000019C25611DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x0000019C27E57380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x0000019C27E57100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x0000019C27AA60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x0000019C27733EE0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x0000019C27AA5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x0000019C27733EE0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x0000019C27AA58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x0000019C27733EE0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x0000019C2B5DC0E0>
+    │       └ <function run at 0x0000019C28907A60>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x0000019C2D6B7B00>
+           │      └ <function Runner.run at 0x0000019C289F6F20>
+           └ <asyncio.runners.Runner object at 0x0000019C2D2E3620>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000019C289F4A40>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000019C2D2E3620>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000019C289F49A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000019C289F67A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000019C289768E0>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000019C2B4CDA20>()>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000019C2B4CDA20>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000019C2B4CDA20>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000019C2B4CDA20>()>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x0000019C28F49300>
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x0000019C2DBD3E20>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x0000019C2D4A5C60>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='C:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 14:01:06.749 | ERROR    | __main__:_invoke_raccoon:107 - 調用 Raccoon AI (Brand ID: 137) 時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x0000019C25611DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x0000019C25665D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x0000019C25611DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x0000019C27E57380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x0000019C27E57100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x0000019C27AA60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x0000019C27733EE0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x0000019C27AA5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x0000019C27733EE0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x0000019C27AA58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x0000019C27733EE0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x0000019C2B5DC0E0>
+    │       └ <function run at 0x0000019C28907A60>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x0000019C2D6B7B00>
+           │      └ <function Runner.run at 0x0000019C289F6F20>
+           └ <asyncio.runners.Runner object at 0x0000019C2D2E3620>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000019C289F4A40>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000019C2D2E3620>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000019C289F49A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000019C289F67A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000019C289768E0>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000019C2B4CDE70>()>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000019C2B4CDE70>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000019C2B4CDE70>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000019C2B4CDE70>()>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x0000019C28F49300>
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x0000019C2DBD3F40>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x0000019C2D4A5C60>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='C:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 14:01:06.757 | ERROR    | __main__:llm_agent_node:132 - LLM Agent 137 執行時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x0000019C25611DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x0000019C25665D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x0000019C25611DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x0000019C27E57380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x0000019C27E57100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x0000019C27AA60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x0000019C27733EE0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x0000019C27AA5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x0000019C27733EE0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x0000019C27AA58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x0000019C27733EE0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x0000019C2B5DC0E0>
+    │       └ <function run at 0x0000019C28907A60>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x0000019C2D6B7B00>
+           │      └ <function Runner.run at 0x0000019C289F6F20>
+           └ <asyncio.runners.Runner object at 0x0000019C2D2E3620>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000019C289F4A40>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000019C2D2E3620>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000019C289F49A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000019C289F67A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000019C289768E0>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 440, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'source_input': {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'bra...
+                │    └ functools.partial(<function llm_agent_node at 0x0000019C25A16020>, agent_id=137, raccoon_runnable=RaccoonRunnable(client=<rac...
+                └ llm_agent_2(tags=None, recurse=True, explode_args=False, func_accepts_config=False, func_accepts={})
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 128, in llm_agent_node
+    response = await raccoon_runnable.as_runnable().ainvoke(message)
+                     │                │                     └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+                     │                └ <function RaccoonRunnable.as_runnable at 0x0000019C2DC13600>
+                     └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x0000019C2DBD3E20>, brand_id='137', stream=True)
+
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4783, in ainvoke
+    return await self._acall_with_config(
+                 │    └ <function Runnable._acall_with_config at 0x0000019C2A09C4A0>
+                 └ RunnableLambda(afunc=_invoke_raccoon)
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1981, in _acall_with_config
+    output: Output = await coro_with_context(coro, context)
+                           │                 │     └ <_contextvars.Context object at 0x0000019C2B55C1C0>
+                           │                 └ <coroutine object RunnableLambda._ainvoke at 0x0000019C2DB3E560>
+                           └ <function coro_with_context at 0x0000019C28F667A0>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x0000019C28F49300>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x0000019C2DBD3E20>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x0000019C2D4A5C60>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='C:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 14:01:06.768 | ERROR    | __main__:llm_agent_node:132 - LLM Agent 137 執行時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x0000019C25611DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x0000019C25665D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x0000019C25611DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x0000019C27E57380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x0000019C27E57100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x0000019C27AA60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x0000019C27733EE0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x0000019C27AA5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x0000019C27733EE0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x0000019C27AA58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x0000019C27733EE0, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x0000019C2B5DC0E0>
+    │       └ <function run at 0x0000019C28907A60>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x0000019C2D6B7B00>
+           │      └ <function Runner.run at 0x0000019C289F6F20>
+           └ <asyncio.runners.Runner object at 0x0000019C2D2E3620>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000019C289F4A40>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000019C2D2E3620>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000019C289F49A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000019C289F67A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000019C289768E0>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 440, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'source_input': {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'bra...
+                │    └ functools.partial(<function llm_agent_node at 0x0000019C25A16020>, agent_id=137, raccoon_runnable=RaccoonRunnable(client=<rac...
+                └ llm_agent_3(tags=None, recurse=True, explode_args=False, func_accepts_config=False, func_accepts={})
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 128, in llm_agent_node
+    response = await raccoon_runnable.as_runnable().ainvoke(message)
+                     │                │                     └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+                     │                └ <function RaccoonRunnable.as_runnable at 0x0000019C2DC13600>
+                     └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x0000019C2DBD3F40>, brand_id='137', stream=True)
+
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4783, in ainvoke
+    return await self._acall_with_config(
+                 │    └ <function Runnable._acall_with_config at 0x0000019C2A09C4A0>
+                 └ RunnableLambda(afunc=_invoke_raccoon)
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1981, in _acall_with_config
+    output: Output = await coro_with_context(coro, context)
+                           │                 │     └ <_contextvars.Context object at 0x0000019C2B55D080>
+                           │                 └ <coroutine object RunnableLambda._ainvoke at 0x0000019C2DB3E820>
+                           └ <function coro_with_context at 0x0000019C28F667A0>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x0000019C28F49300>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x0000019C2DBD3F40>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x0000019C2D4A5C60>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='C:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 14:01:06.780 | INFO     | __main__:aggregator_node:138 - 進入 Aggregator 節點
+2025-04-27 14:01:06.780 | WARNING  | __main__:aggregator_node:179 - 兩個 Agent 的回應均為空
+2025-04-27 14:01:06.780 | INFO     | __main__:aggregator_node:185 - Aggregator 節點執行完成
+2025-04-27 14:01:06.781 | DEBUG    | __main__:aggregator_node:186 - 聚合後內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 14:01:06.782 | INFO     | __main__:final_llm_node:193 - 進入 Final LLM 節點
+2025-04-27 14:01:06.782 | DEBUG    | __main__:final_llm_node:208 - Final LLM 收到的聚合內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 14:01:06.782 | WARNING  | __main__:final_llm_node:212 - 聚合內容缺少實質內容，使用預設訊息替代
+2025-04-27 14:01:28.502 | INFO     | __main__:<module>:347 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 14:01:28.505 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:01:28.505 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:01:28.521 | INFO     | __main__:build_graph:289 - Langgraph 圖構建完成
+2025-04-27 14:01:28.521 | INFO     | __main__:main:303 - 開始執行 Langgraph 流程，初始訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:01:28.522 | INFO     | __main__:main:310 - Windows 系統下使用 ainvoke 模式
+2025-04-27 14:01:28.532 | INFO     | __main__:start_branch:272 - 流程開始，準備分支到 LLM Agent 2 和 3
+2025-04-27 14:01:28.535 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 14:01:28.536 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 14:01:28.541 | ERROR    | __main__:_invoke_raccoon:107 - 調用 Raccoon AI (Brand ID: 137) 時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x00000268AFA31DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x00000268AFA85D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x00000268AFA31DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x00000268B2373380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x00000268B2373100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x00000268B1FC60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x00000268B1ABF310, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x00000268B1FC5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x00000268B1ABF310, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x00000268B1FC58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x00000268B1ABF310, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x00000268B8087EC0>
+    │       └ <function run at 0x00000268B24EFA60>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x00000268B7B2FB00>
+           │      └ <function Runner.run at 0x00000268B2DF2F20>
+           └ <asyncio.runners.Runner object at 0x00000268B78B34A0>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x00000268B2DF0A40>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x00000268B78B34A0>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x00000268B2DF09A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000268B2DF27A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x00000268B2D6E8E0>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x00000268B70952A0>()>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <_asyncio.TaskStepMethWrapper object at 0x00000268B70952A0>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <_asyncio.TaskStepMethWrapper object at 0x00000268B70952A0>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x00000268B70952A0>()>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x00000268B3369300>
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x00000268B8063B20>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x00000268B79219E0>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='C:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 14:01:28.553 | ERROR    | __main__:_invoke_raccoon:107 - 調用 Raccoon AI (Brand ID: 137) 時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x00000268AFA31DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x00000268AFA85D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x00000268AFA31DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x00000268B2373380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x00000268B2373100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x00000268B1FC60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x00000268B1ABF310, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x00000268B1FC5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x00000268B1ABF310, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x00000268B1FC58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x00000268B1ABF310, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x00000268B8087EC0>
+    │       └ <function run at 0x00000268B24EFA60>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x00000268B7B2FB00>
+           │      └ <function Runner.run at 0x00000268B2DF2F20>
+           └ <asyncio.runners.Runner object at 0x00000268B78B34A0>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x00000268B2DF0A40>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x00000268B78B34A0>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x00000268B2DF09A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000268B2DF27A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x00000268B2D6E8E0>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x00000268B7094AF0>()>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <_asyncio.TaskStepMethWrapper object at 0x00000268B7094AF0>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <_asyncio.TaskStepMethWrapper object at 0x00000268B7094AF0>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x00000268B7094AF0>()>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x00000268B3369300>
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x00000268B8063C40>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x00000268B79219E0>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='C:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 14:01:28.562 | ERROR    | __main__:llm_agent_node:132 - LLM Agent 137 執行時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x00000268AFA31DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x00000268AFA85D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x00000268AFA31DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x00000268B2373380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x00000268B2373100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x00000268B1FC60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x00000268B1ABF310, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x00000268B1FC5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x00000268B1ABF310, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x00000268B1FC58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x00000268B1ABF310, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x00000268B8087EC0>
+    │       └ <function run at 0x00000268B24EFA60>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x00000268B7B2FB00>
+           │      └ <function Runner.run at 0x00000268B2DF2F20>
+           └ <asyncio.runners.Runner object at 0x00000268B78B34A0>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x00000268B2DF0A40>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x00000268B78B34A0>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x00000268B2DF09A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000268B2DF27A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x00000268B2D6E8E0>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 440, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'source_input': {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'bra...
+                │    └ functools.partial(<function llm_agent_node at 0x00000268AFE36020>, agent_id=137, raccoon_runnable=RaccoonRunnable(client=<rac...
+                └ llm_agent_2(tags=None, recurse=True, explode_args=False, func_accepts_config=False, func_accepts={})
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 128, in llm_agent_node
+    response = await raccoon_runnable.as_runnable().ainvoke(message)
+                     │                │                     └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+                     │                └ <function RaccoonRunnable.as_runnable at 0x00000268B8087880>
+                     └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x00000268B8063B20>, brand_id='137', stream=True)
+
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4783, in ainvoke
+    return await self._acall_with_config(
+                 │    └ <function Runnable._acall_with_config at 0x00000268B44B84A0>
+                 └ RunnableLambda(afunc=_invoke_raccoon)
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1981, in _acall_with_config
+    output: Output = await coro_with_context(coro, context)
+                           │                 │     └ <_contextvars.Context object at 0x00000268B5D8EE40>
+                           │                 └ <coroutine object RunnableLambda._ainvoke at 0x00000268B7FC2400>
+                           └ <function coro_with_context at 0x00000268B33867A0>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x00000268B3369300>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x00000268B8063B20>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x00000268B79219E0>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='C:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 14:01:28.573 | ERROR    | __main__:llm_agent_node:132 - LLM Agent 137 執行時發生錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x00000268AFA31DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x00000268AFA85D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x00000268AFA31DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x00000268B2373380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x00000268B2373100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x00000268B1FC60C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x00000268B1ABF310, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x00000268B1FC5D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x00000268B1ABF310, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x00000268B1FC58A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x00000268B1ABF310, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x00000268B8087EC0>
+    │       └ <function run at 0x00000268B24EFA60>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x00000268B7B2FB00>
+           │      └ <function Runner.run at 0x00000268B2DF2F20>
+           └ <asyncio.runners.Runner object at 0x00000268B78B34A0>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x00000268B2DF0A40>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x00000268B78B34A0>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x00000268B2DF09A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000268B2DF27A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x00000268B2D6E8E0>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 440, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+                │    │      │       └ {}
+                │    │      └ ({'source_input': {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'bra...
+                │    └ functools.partial(<function llm_agent_node at 0x00000268AFE36020>, agent_id=137, raccoon_runnable=RaccoonRunnable(client=<rac...
+                └ llm_agent_3(tags=None, recurse=True, explode_args=False, func_accepts_config=False, func_accepts={})
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 128, in llm_agent_node
+    response = await raccoon_runnable.as_runnable().ainvoke(message)
+                     │                │                     └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+                     │                └ <function RaccoonRunnable.as_runnable at 0x00000268B8087880>
+                     └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x00000268B8063C40>, brand_id='137', stream=True)
+
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4783, in ainvoke
+    return await self._acall_with_config(
+                 │    └ <function Runnable._acall_with_config at 0x00000268B44B84A0>
+                 └ RunnableLambda(afunc=_invoke_raccoon)
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1981, in _acall_with_config
+    output: Output = await coro_with_context(coro, context)
+                           │                 │     └ <_contextvars.Context object at 0x00000268B5812B40>
+                           │                 └ <coroutine object RunnableLambda._ainvoke at 0x00000268B7FC26C0>
+                           └ <function coro_with_context at 0x00000268B33867A0>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x00000268B3369300>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 72, in _invoke_raccoon
+    logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message[:50]}...")
+    │      │                                 │    │               └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │      │                                 │    └ '137'
+    │      │                                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x00000268B8063C40>, brand_id='137', stream=True)
+    │      └ <function Logger.debug at 0x00000268B79219E0>
+    └ <loguru.logger handlers=[(id=0, level=10, sink=<stderr>), (id=1, level=20, sink='C:\Users\enor\Documents\jtcg\test_llm_mode\l...
+
+KeyError: slice(None, 50, None)
+2025-04-27 14:01:28.586 | INFO     | __main__:aggregator_node:138 - 進入 Aggregator 節點
+2025-04-27 14:01:28.586 | WARNING  | __main__:aggregator_node:179 - 兩個 Agent 的回應均為空
+2025-04-27 14:01:28.587 | INFO     | __main__:aggregator_node:185 - Aggregator 節點執行完成
+2025-04-27 14:01:28.587 | DEBUG    | __main__:aggregator_node:186 - 聚合後內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 14:01:28.588 | INFO     | __main__:final_llm_node:193 - 進入 Final LLM 節點
+2025-04-27 14:01:28.588 | DEBUG    | __main__:final_llm_node:208 - Final LLM 收到的聚合內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 14:01:28.589 | WARNING  | __main__:final_llm_node:212 - 聚合內容缺少實質內容，使用預設訊息替代
+2025-04-27 14:02:06.826 | INFO     | __main__:<module>:347 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 14:02:06.829 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:02:06.829 | DEBUG    | raccoon_client:__init__:33 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:02:06.843 | INFO     | __main__:build_graph:289 - Langgraph 圖構建完成
+2025-04-27 14:02:06.845 | INFO     | __main__:main:303 - 開始執行 Langgraph 流程，初始訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:02:06.845 | INFO     | __main__:main:310 - Windows 系統下使用 ainvoke 模式
+2025-04-27 14:02:06.855 | INFO     | __main__:start_branch:272 - 流程開始，準備分支到 LLM Agent 2 和 3
+2025-04-27 14:02:06.859 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 14:02:06.860 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 14:02:06.864 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:02:06.864 | DEBUG    | __main__:_invoke_raccoon:78 - 開始串流處理 (Brand ID: 137)
+2025-04-27 14:02:20.747 | DEBUG    | raccoon_client:stream_chat:179 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 14:02:21.184 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:02:21.184 | DEBUG    | __main__:_invoke_raccoon:78 - 開始串流處理 (Brand ID: 137)
+2025-04-27 14:02:21.667 | DEBUG    | raccoon_client:stream_chat:179 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 14:02:22.237 | ERROR    | raccoon_client:stream_chat:194 - Raccoon AI API (串流) 錯誤: 422 - {"detail":[{"type":"string_type","loc":["body","chat_history",0,"content",0,"text"],"msg":"Input should be a valid string","input":{"chat_history":[{"role":"user","content":[{"text":"嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？","type":"text"}]}],"brand_id":137}}]}
+NoneType: None
+2025-04-27 14:02:22.240 | ERROR    | raccoon_client:stream_chat:255 - 處理 Raccoon AI API (串流) 時發生未知錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x000001FF13DD1DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x000001FF13E25D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x000001FF13DD1DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x000001FF166F3380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x000001FF166F3100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x000001FF163460C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x000001FF15F0B130, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x000001FF16345D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x000001FF15F0B130, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x000001FF163458A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x000001FF15F0B130, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x000001FF196C4180>
+    │       └ <function run at 0x000001FF16913A60>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x000001FF1BF0FC40>
+           │      └ <function Runner.run at 0x000001FF17226F20>
+           └ <asyncio.runners.Runner object at 0x000001FF1C359CA0>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x000001FF17224A40>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x000001FF1C359CA0>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x000001FF172249A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x000001FF172267A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000001FF1719E8E0>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x000001FF189C1300>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 81, in _invoke_raccoon
+    async for chunk in client.stream_chat(message=message, brand_id=self.brand_id, reset_history=True):
+                       │      │                   │                 │    └ '137'
+                       │      │                   │                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x000001FF1C433F40>, brand_id='137', stream=True)
+                       │      │                   └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+                       │      └ <function RaccoonAIClient.stream_chat at 0x000001FF1C473A60>
+                       └ <raccoon_client.RaccoonAIClient object at 0x000001FF1C433F40>
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\raccoon_client.py", line 195, in stream_chat
+    raise Exception(
+
+TypeError: Exception() takes no keyword arguments
+2025-04-27 14:02:24.910 | DEBUG    | __main__:_invoke_raccoon:88 - Raccoon AI 串流回應完成 (Brand ID: 137), 收集到內容長度: 62
+2025-04-27 14:02:25.208 | ERROR    | raccoon_client:stream_chat:194 - Raccoon AI API (串流) 錯誤: 422 - {"detail":[{"type":"string_type","loc":["body","chat_history",0,"content",0,"text"],"msg":"Input should be a valid string","input":{"chat_history":[{"role":"user","content":[{"text":"嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？","type":"text"}]}],"brand_id":137}}]}
+NoneType: None
+2025-04-27 14:02:25.209 | ERROR    | raccoon_client:stream_chat:255 - 處理 Raccoon AI API (串流) 時發生未知錯誤
+Traceback (most recent call last):
+
+  File "c:\Python312\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x000001FF13DD1DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+           └ <function _run_code at 0x000001FF13E25D00>
+  File "c:\Python312\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x000001FF13DD1DE0, file "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bund...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x000001FF166F3380>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundled\\libs\...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x000001FF166F3100>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'C:\\Users\\enor\\Documents\\jtcg\\test_llm_mode\\langgraph_flow.py'
+    │     └ <function run_path at 0x000001FF163460C0>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\enor\\.cursor\\extensions\\ms-python.debugpy-2024.6.0-win32-x64\\bundl...
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x000001FF15F0B130, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+           └ <function _run_module_code at 0x000001FF16345D00>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+    │         └ <code object <module> at 0x000001FF15F0B130, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+    └ <function _run_code at 0x000001FF163458A0>
+
+  File "c:\Users\enor\.cursor\extensions\ms-python.debugpy-2024.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'C:\\Users\\en...
+         └ <code object <module> at 0x000001FF15F0B130, file "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 1>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 363, in <module>
+    asyncio.run(main(api_request_data))
+    │       │   │    └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+    │       │   └ <function main at 0x000001FF196C4180>
+    │       └ <function run at 0x000001FF16913A60>
+    └ <module 'asyncio' from 'c:\\Python312\\Lib\\asyncio\\__init__.py'>
+
+  File "c:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x000001FF1BF0FC40>
+           │      └ <function Runner.run at 0x000001FF17226F20>
+           └ <asyncio.runners.Runner object at 0x000001FF1C359CA0>
+  File "c:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<main() running at C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py:311> wait_fo...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x000001FF17224A40>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x000001FF1C359CA0>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 673, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x000001FF172249A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 640, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x000001FF172267A0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "c:\Python312\Lib\asyncio\base_events.py", line 1992, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000001FF1719E8E0>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "c:\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4715, in _ainvoke
+    output = await acall_func_with_variable_args(
+                   └ <function acall_func_with_variable_args at 0x000001FF189C1300>
+
+  File "C:\Users\enor\Documents\jtcg\test_llm_mode\langgraph_flow.py", line 81, in _invoke_raccoon
+    async for chunk in client.stream_chat(message=message, brand_id=self.brand_id, reset_history=True):
+                       │      │                   │                 │    └ '137'
+                       │      │                   │                 └ RaccoonRunnable(client=<raccoon_client.RaccoonAIClient object at 0x000001FF1C433E20>, brand_id='137', stream=True)
+                       │      │                   └ {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}
+                       │      └ <function RaccoonAIClient.stream_chat at 0x000001FF1C473A60>
+                       └ <raccoon_client.RaccoonAIClient object at 0x000001FF1C433E20>
+
+> File "C:\Users\enor\Documents\jtcg\test_llm_mode\raccoon_client.py", line 195, in stream_chat
+    raise Exception(
+
+TypeError: Exception() takes no keyword arguments
+2025-04-27 14:02:25.440 | DEBUG    | __main__:_invoke_raccoon:88 - Raccoon AI 串流回應完成 (Brand ID: 137), 收集到內容長度: 62
+2025-04-27 14:02:25.737 | INFO     | __main__:llm_agent_node:129 - LLM Agent 137 執行完成
+2025-04-27 14:02:25.738 | INFO     | __main__:llm_agent_node:129 - LLM Agent 137 執行完成
+2025-04-27 14:02:25.740 | INFO     | __main__:aggregator_node:138 - 進入 Aggregator 節點
+2025-04-27 14:02:25.740 | WARNING  | __main__:aggregator_node:179 - 兩個 Agent 的回應均為空
+2025-04-27 14:02:25.741 | INFO     | __main__:aggregator_node:185 - Aggregator 節點執行完成
+2025-04-27 14:02:25.741 | DEBUG    | __main__:aggregator_node:186 - 聚合後內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 14:02:25.742 | INFO     | __main__:final_llm_node:193 - 進入 Final LLM 節點
+2025-04-27 14:02:25.743 | DEBUG    | __main__:final_llm_node:208 - Final LLM 收到的聚合內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 14:02:25.743 | WARNING  | __main__:final_llm_node:212 - 聚合內容缺少實質內容，使用預設訊息替代
+2025-04-27 14:02:38.204 | INFO     | __main__:final_llm_node:238 - Final LLM 串流輸出完成
+2025-04-27 14:02:38.205 | INFO     | __main__:main:312 - Langgraph 流程執行完畢
+2025-04-27 14:02:38.206 | DEBUG    | __main__:main:332 - 最終狀態: {'source_input': {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}, 'merged_output': '兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。'}
+2025-04-27 14:05:52.170 | INFO     | __main__:<module>:347 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 14:05:52.173 | DEBUG    | raccoon_client:__init__:32 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:05:52.173 | DEBUG    | raccoon_client:__init__:32 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:05:52.189 | INFO     | __main__:build_graph:289 - Langgraph 圖構建完成
+2025-04-27 14:05:52.189 | INFO     | __main__:main:303 - 開始執行 Langgraph 流程，初始訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:05:52.189 | INFO     | __main__:main:310 - Windows 系統下使用 ainvoke 模式
+2025-04-27 14:05:52.201 | INFO     | __main__:start_branch:272 - 流程開始，準備分支到 LLM Agent 2 和 3
+2025-04-27 14:05:52.204 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 14:05:52.205 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 14:05:52.210 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:05:52.210 | DEBUG    | __main__:_invoke_raccoon:78 - 開始串流處理 (Brand ID: 137)
+2025-04-27 14:05:57.341 | DEBUG    | raccoon_client:stream_chat:173 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 14:05:57.346 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137, 'stream': True}...
+2025-04-27 14:05:57.346 | DEBUG    | __main__:_invoke_raccoon:78 - 開始串流處理 (Brand ID: 137)
+2025-04-27 14:05:57.347 | DEBUG    | raccoon_client:stream_chat:173 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 14:06:07.576 | DEBUG    | raccoon_client:stream_chat:243 - Raccoon AI API (串流) 請求完成，耗時: 10.2345 秒
+2025-04-27 14:06:07.576 | DEBUG    | __main__:_invoke_raccoon:88 - Raccoon AI 串流回應完成 (Brand ID: 137), 收集到內容長度: 0
+2025-04-27 14:06:07.577 | WARNING  | __main__:_invoke_raccoon:93 - Agent 137 回應為空，使用預設訊息
+2025-04-27 14:06:07.579 | INFO     | __main__:llm_agent_node:129 - LLM Agent 137 執行完成
+2025-04-27 14:06:25.456 | DEBUG    | raccoon_client:stream_chat:243 - Raccoon AI API (串流) 請求完成，耗時: 26.6292 秒
+2025-04-27 14:06:29.154 | DEBUG    | __main__:_invoke_raccoon:88 - Raccoon AI 串流回應完成 (Brand ID: 137), 收集到內容長度: 0
+2025-04-27 14:06:29.875 | WARNING  | __main__:_invoke_raccoon:93 - Agent 137 回應為空，使用預設訊息
+2025-04-27 14:06:32.624 | INFO     | __main__:llm_agent_node:129 - LLM Agent 137 執行完成
+2025-04-27 14:06:32.626 | INFO     | __main__:aggregator_node:138 - 進入 Aggregator 節點
+2025-04-27 14:06:32.626 | WARNING  | __main__:aggregator_node:179 - 兩個 Agent 的回應均為空
+2025-04-27 14:06:32.627 | INFO     | __main__:aggregator_node:185 - Aggregator 節點執行完成
+2025-04-27 14:06:32.627 | DEBUG    | __main__:aggregator_node:186 - 聚合後內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 14:06:32.628 | INFO     | __main__:final_llm_node:193 - 進入 Final LLM 節點
+2025-04-27 14:06:32.628 | DEBUG    | __main__:final_llm_node:208 - Final LLM 收到的聚合內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 14:06:32.629 | WARNING  | __main__:final_llm_node:212 - 聚合內容缺少實質內容，使用預設訊息替代
+2025-04-27 14:06:42.749 | INFO     | __main__:final_llm_node:238 - Final LLM 串流輸出完成
+2025-04-27 14:06:42.750 | INFO     | __main__:main:312 - Langgraph 流程執行完畢
+2025-04-27 14:06:42.751 | DEBUG    | __main__:main:332 - 最終狀態: {'source_input': {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137, 'stream': True}, 'merged_output': '兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。'}
+2025-04-27 14:07:44.536 | INFO     | __main__:<module>:347 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 14:07:44.539 | DEBUG    | raccoon_client:__init__:32 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:07:44.539 | DEBUG    | raccoon_client:__init__:32 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:08:35.307 | INFO     | __main__:<module>:347 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 14:08:35.309 | DEBUG    | raccoon_client:__init__:32 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:08:35.309 | DEBUG    | raccoon_client:__init__:32 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:08:35.324 | INFO     | __main__:build_graph:289 - Langgraph 圖構建完成
+2025-04-27 14:08:35.325 | INFO     | __main__:main:303 - 開始執行 Langgraph 流程，初始訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:08:35.325 | INFO     | __main__:main:310 - Windows 系統下使用 ainvoke 模式
+2025-04-27 14:08:35.336 | INFO     | __main__:start_branch:272 - 流程開始，準備分支到 LLM Agent 2 和 3
+2025-04-27 14:08:35.339 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 14:08:35.340 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 14:08:35.345 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:08:35.345 | DEBUG    | __main__:_invoke_raccoon:78 - 開始串流處理 (Brand ID: 137)
+2025-04-27 14:08:35.345 | DEBUG    | raccoon_client:stream_chat:173 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 14:08:35.350 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137, 'stream': True}...
+2025-04-27 14:08:35.350 | DEBUG    | __main__:_invoke_raccoon:78 - 開始串流處理 (Brand ID: 137)
+2025-04-27 14:08:35.350 | DEBUG    | raccoon_client:stream_chat:173 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 14:08:56.026 | DEBUG    | raccoon_client:stream_chat:243 - Raccoon AI API (串流) 請求完成，耗時: 20.6484 秒
+2025-04-27 14:09:47.037 | INFO     | __main__:<module>:347 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 14:09:47.040 | DEBUG    | raccoon_client:__init__:32 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:09:47.040 | DEBUG    | raccoon_client:__init__:32 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:09:47.056 | INFO     | __main__:build_graph:289 - Langgraph 圖構建完成
+2025-04-27 14:09:47.056 | INFO     | __main__:main:303 - 開始執行 Langgraph 流程，初始訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:09:47.057 | INFO     | __main__:main:310 - Windows 系統下使用 ainvoke 模式
+2025-04-27 14:09:47.068 | INFO     | __main__:start_branch:272 - 流程開始，準備分支到 LLM Agent 2 和 3
+2025-04-27 14:09:47.070 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 14:09:47.071 | INFO     | __main__:llm_agent_node:120 - 進入 LLM Agent 137 節點
+2025-04-27 14:09:47.076 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:09:47.076 | DEBUG    | __main__:_invoke_raccoon:78 - 開始串流處理 (Brand ID: 137)
+2025-04-27 14:10:22.482 | DEBUG    | raccoon_client:stream_chat:173 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 14:10:59.625 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137, 'stream': True}...
+2025-04-27 14:10:59.626 | DEBUG    | __main__:_invoke_raccoon:78 - 開始串流處理 (Brand ID: 137)
+2025-04-27 14:11:04.392 | DEBUG    | raccoon_client:stream_chat:173 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 14:11:58.621 | DEBUG    | raccoon_client:stream_chat:243 - Raccoon AI API (串流) 請求完成，耗時: 67.1241 秒
+2025-04-27 14:16:10.398 | INFO     | __main__:<module>:377 - 在 Windows 上設置 WindowsSelectorEventLoopPolicy
+2025-04-27 14:16:10.401 | DEBUG    | raccoon_client:__init__:32 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:16:10.402 | DEBUG    | raccoon_client:__init__:32 - 初始化 RaccoonAIClient, API 端點: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat
+2025-04-27 14:16:10.416 | INFO     | __main__:build_graph:319 - Langgraph 圖構建完成
+2025-04-27 14:16:10.417 | INFO     | __main__:main:333 - 開始執行 Langgraph 流程，初始訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:16:10.417 | INFO     | __main__:main:340 - Windows 系統下使用 ainvoke 模式
+2025-04-27 14:16:10.427 | INFO     | __main__:start_branch:302 - 流程開始，準備分支到 LLM Agent 2 和 3
+2025-04-27 14:16:10.430 | INFO     | __main__:llm_agent_node:150 - 進入 LLM Agent 137 節點
+2025-04-27 14:16:10.431 | INFO     | __main__:llm_agent_node:150 - 進入 LLM Agent 137 節點
+2025-04-27 14:16:10.436 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137}...
+2025-04-27 14:16:10.436 | DEBUG    | __main__:_invoke_raccoon:78 - 開始串流處理 (Brand ID: 137)
+2025-04-27 14:16:17.698 | DEBUG    | raccoon_client:stream_chat:173 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 14:16:17.705 | DEBUG    | __main__:_invoke_raccoon:72 - 調用 Raccoon AI (Brand ID: 137)，訊息: {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137, 'stream': True}...
+2025-04-27 14:16:17.705 | DEBUG    | __main__:_invoke_raccoon:78 - 開始串流處理 (Brand ID: 137)
+2025-04-27 14:16:17.706 | DEBUG    | raccoon_client:stream_chat:173 - 發送串流請求到 API: https://wpave57sws2rot74vg4q5i7g5m0zmbzw.lambda-url.ap-northeast-1.on.aws/api/v2/raccoon_ai_core/chat, 品牌ID: 137
+2025-04-27 14:16:32.904 | DEBUG    | raccoon_client:stream_chat:243 - Raccoon AI API (串流) 請求完成，耗時: 15.1970 秒
+2025-04-27 14:16:32.905 | DEBUG    | __main__:_invoke_raccoon:88 - Raccoon AI 串流回應完成 (Brand ID: 137), 收集到內容長度: 0
+2025-04-27 14:16:32.905 | WARNING  | __main__:_invoke_raccoon:93 - Agent 137 回應為空，使用預設訊息
+2025-04-27 14:16:32.909 | DEBUG    | raccoon_client:stream_chat:243 - Raccoon AI API (串流) 請求完成，耗時: 15.2100 秒
+2025-04-27 14:16:32.909 | DEBUG    | __main__:_invoke_raccoon:88 - Raccoon AI 串流回應完成 (Brand ID: 137), 收集到內容長度: 0
+2025-04-27 14:16:32.910 | WARNING  | __main__:_invoke_raccoon:93 - Agent 137 回應為空，使用預設訊息
+2025-04-27 14:16:32.911 | INFO     | __main__:llm_agent_node:159 - LLM Agent 137 執行完成
+2025-04-27 14:16:32.911 | INFO     | __main__:llm_agent_node:159 - LLM Agent 137 執行完成
+2025-04-27 14:16:32.914 | INFO     | __main__:aggregator_node:168 - 進入 Aggregator 節點
+2025-04-27 14:16:32.914 | WARNING  | __main__:aggregator_node:209 - 兩個 Agent 的回應均為空
+2025-04-27 14:16:32.914 | INFO     | __main__:aggregator_node:215 - Aggregator 節點執行完成
+2025-04-27 14:16:32.915 | DEBUG    | __main__:aggregator_node:216 - 聚合後內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 14:16:32.916 | INFO     | __main__:final_llm_node:223 - 進入 Final LLM 節點
+2025-04-27 14:16:32.916 | DEBUG    | __main__:final_llm_node:238 - Final LLM 收到的聚合內容: 兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。...
+2025-04-27 14:16:32.916 | WARNING  | __main__:final_llm_node:242 - 聚合內容缺少實質內容，使用預設訊息替代
+2025-04-27 14:16:40.074 | INFO     | __main__:final_llm_node:268 - Final LLM 串流輸出完成
+2025-04-27 14:16:40.076 | INFO     | __main__:main:342 - Langgraph 流程執行完畢
+2025-04-27 14:16:40.076 | DEBUG    | __main__:main:362 - 最終狀態: {'source_input': {'chat_history': [{'role': 'user', 'content': [{'text': '嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？', 'type': 'text'}]}], 'brand_id': 137, 'stream': True}, 'merged_output': '兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。'}
