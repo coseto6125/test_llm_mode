@@ -281,15 +281,15 @@ def build_graph() -> StateGraph:
     workflow = StateGraph(FlowState)
 
     # 使用串流模式
-    raccoon_agent_2 = RaccoonRunnable(brand_id="137", stream=True)  # 設置 stream=True
-    raccoon_agent_3 = RaccoonRunnable(brand_id="137", stream=True)  # 設置 stream=True
+    raccoon_agent_2 = ChatOpenAI(model="gpt-4-1106-nano", temperature=0.7, streaming=True)
+    raccoon_agent_3 = ChatOpenAI(model="gpt-4-1106-nano", temperature=0.7, streaming=True)
 
     # 偏函數應用，將 agent_id 和 runnable 綁定到節點函數
     # 使用 functools.partial 替代 lambda 以提高效能 (雖然此處差異不大)
     from functools import partial
 
-    llm_agent_2_node_partial = partial(llm_agent_node, agent_id=137, raccoon_runnable=raccoon_agent_2)
-    llm_agent_3_node_partial = partial(llm_agent_node, agent_id=137, raccoon_runnable=raccoon_agent_3)
+    llm_agent_2_node_partial = partial(llm_agent_node, agent_id=137, raccoon_runnable=raccoon_agent_2.as_runnable())
+    llm_agent_3_node_partial = partial(llm_agent_node, agent_id=137, raccoon_runnable=raccoon_agent_3.as_runnable())
 
     workflow.add_node("llm_agent_2", llm_agent_2_node_partial)
     workflow.add_node("llm_agent_3", llm_agent_3_node_partial)
