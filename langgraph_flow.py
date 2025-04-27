@@ -38,6 +38,7 @@ if not os.getenv("OPENAI_API_KEY_QA"):
 
 # --- Langgraph 狀態定義 ---
 
+
 class FlowState(TypedDict):
     source_input: NotRequired[str]
     llm2_output: NotRequired[str]
@@ -45,7 +46,9 @@ class FlowState(TypedDict):
     merged_output: NotRequired[str]
     final_output: NotRequired[str]
 
+
 # --- Langgraph 節點定義 ---
+
 
 async def llm_agent_node(
     state: FlowState, agent_id: int, llm_runnable, system_prompt=None
@@ -71,9 +74,12 @@ async def llm_agent_node(
     }
 
     try:
-        from langchain_core.messages import SystemMessage, HumanMessage
+        from langchain_core.messages import HumanMessage, SystemMessage
+
         if system_prompt is None:
-            system_prompt = "你是專業客服 AI，請根據用戶需求給予簡潔、禮貌且專業的回應。"
+            system_prompt = (
+                "你是專業客服 AI，請根據用戶需求給予簡潔、禮貌且專業的回應。"
+            )
         system_message = SystemMessage(content=system_prompt)
         human_message = HumanMessage(content=message)
         response = await llm_runnable.ainvoke([system_message, human_message])
@@ -133,9 +139,8 @@ async def llm_agent_node(
         )
         logger.exception(f"LLM Agent {agent_id} (openai) 執行時發生錯誤")
         key = f"llm{agent_id}_output"
-        return {
-            key: {"error": f"Agent {agent_id} (openai) failed: {str(e)}"}
-        }
+        return {key: {"error": f"Agent {agent_id} (openai) failed: {str(e)}"}}
+
 
 async def aggregator_node(state: FlowState) -> dict[str, Any]:
     """聚合 LLM Agent 2 和 3 結果的節點"""
@@ -186,6 +191,7 @@ async def aggregator_node(state: FlowState) -> dict[str, Any]:
     )
     return {"merged_output": merged_output}
 
+
 async def final_llm_node(state: FlowState) -> dict[Literal["final_output"], str]:
     """執行最終 LLM Agent (OpenAI) 並串流輸出的節點"""
     logger.info("進入 Final LLM 節點")
@@ -215,7 +221,7 @@ async def final_llm_node(state: FlowState) -> dict[Literal["final_output"], str]
 
     from prompt import basic_evaluator_prompt
 
-    llm = ChatOpenAI(model="gpt-4-turbo", temperature=0.7, streaming=True)
+    llm = ChatOpenAI(model="gpt-4.1-nano-2025-04-14", temperature=0.1, streaming=True)
     system_message = SystemMessage(content=basic_evaluator_prompt)
     human_message = HumanMessage(content=merged_output)
 
@@ -266,15 +272,21 @@ async def final_llm_node(state: FlowState) -> dict[Literal["final_output"], str]
         )
         return {"final_output": f"Final LLM failed: {str(e)}"}
 
+
 # --- Langgraph 圖構建 ---
+
 
 def build_graph(use_streaming=True) -> StateGraph:
     """構建 Langgraph 流程圖（OpenAI LLM only）"""
     workflow = StateGraph(FlowState)
     from functools import partial
 
-    llm2 = ChatOpenAI(model="gpt-4-turbo", temperature=0.5, streaming=use_streaming)
-    llm3 = ChatOpenAI(model="gpt-4-turbo", temperature=0.8, streaming=use_streaming)
+    llm2 = ChatOpenAI(
+        model="gpt-4.1-nano-2025-04-14", temperature=0.1, streaming=use_streaming
+    )
+    llm3 = ChatOpenAI(
+        model="gpt-4.1-nano-2025-04-14", temperature=0.1, streaming=use_streaming
+    )
 
     # 專業酒店預訂助手 system_prompt
     hotel_system_prompt = """你是一個專業的酒店預訂助手。
@@ -324,11 +336,13 @@ def build_graph(use_streaming=True) -> StateGraph:
     logger.info("Langgraph 圖構建完成 (OpenAI LLM only)")
     return app
 
+
 # --- 性能監控變數 ---
 
 perf_data = []
 output_dir = Path("performance_outputs")
 output_dir.mkdir(exist_ok=True)
+
 
 def save_performance_data() -> None:
     """將性能數據儲存到CSV檔案"""
@@ -375,6 +389,7 @@ def save_performance_data() -> None:
         logger.exception(f"儲存性能數據時發生錯誤: {e}")
         print(f"儲存性能數據時發生錯誤: {e}")
 
+
 def analyze_performance_data():
     """分析性能數據並顯示比較結果"""
     if not perf_data:
@@ -390,7 +405,9 @@ def analyze_performance_data():
             grouped_data[key].append(entry)
 
     print("\n===== 各種模式執行時間對比 =====")
-    print(f"{'執行模式':<12} | {'llm_type':<8} | {'串流模式':<8} | {'總執行時間(秒)':<15}")
+    print(
+        f"{'執行模式':<12} | {'llm_type':<8} | {'串流模式':<8} | {'總執行時間(秒)':<15}"
+    )
     print("-" * 60)
 
     for (exec_mode, llm_type, stream_mode), entries in grouped_data.items():
@@ -399,7 +416,9 @@ def analyze_performance_data():
 
     # 額外的分析可依需求擴充
 
+
 # --- 主執行函數 ---
+
 
 async def run_sequential(initial_message: str, use_streaming: bool = True):
     """執行順序流程（非並行）"""
@@ -413,15 +432,15 @@ async def run_sequential(initial_message: str, use_streaming: bool = True):
     workflow = StateGraph(FlowState)
     from functools import partial
 
-    llm2 = ChatOpenAI(model="gpt-4-turbo", temperature=0.5, streaming=use_streaming)
-    llm3 = ChatOpenAI(model="gpt-4-turbo", temperature=0.8, streaming=use_streaming)
+    llm2 = ChatOpenAI(
+        model="gpt-4.1-nano-2025-04-14", temperature=0.1, streaming=use_streaming
+    )
+    llm3 = ChatOpenAI(
+        model="gpt-4.1-nano-2025-04-14", temperature=0.1, streaming=use_streaming
+    )
 
-    llm_agent_2_node_partial = partial(
-        llm_agent_node, agent_id=2, llm_runnable=llm2
-    )
-    llm_agent_3_node_partial = partial(
-        llm_agent_node, agent_id=3, llm_runnable=llm3
-    )
+    llm_agent_2_node_partial = partial(llm_agent_node, agent_id=2, llm_runnable=llm2)
+    llm_agent_3_node_partial = partial(llm_agent_node, agent_id=3, llm_runnable=llm3)
 
     workflow.add_node("start", lambda x: x)
     workflow.add_node("llm_agent_2", llm_agent_2_node_partial)
@@ -479,6 +498,7 @@ async def run_sequential(initial_message: str, use_streaming: bool = True):
         logger.exception(f"順序流程執行時發生錯誤: {e}")
         print(f"\n執行過程中發生錯誤: {e}")
         return {"error": str(e)}
+
 
 async def run_parallel(initial_message: str, use_streaming: bool = True):
     """執行並行流程（OpenAI LLM only）"""
@@ -561,6 +581,7 @@ async def run_parallel(initial_message: str, use_streaming: bool = True):
         print(f"\n執行過程中發生錯誤: {e}")
         return {"error": str(e)}
 
+
 if __name__ == "__main__":
     if platform.system() == "Windows":
         logger.info("在 Windows 上設置 WindowsSelectorEventLoopPolicy")
@@ -574,18 +595,20 @@ if __name__ == "__main__":
     else:
         logger.info("使用標準事件循環")
 
-    from prompt import api_request_data
-
     # 執行順序/並行、串流/非串流共 4 組
     import gc
     import time
+
+    from prompt import api_request_data
 
     for mode in ["順序", "並行"]:
         for streaming in [False, True]:
             print(f"\n=== 測試: {mode}執行, 串流={streaming}, llm=openai ===")
             try:
                 if mode == "順序":
-                    asyncio.run(run_sequential(api_request_data, use_streaming=streaming))
+                    asyncio.run(
+                        run_sequential(api_request_data, use_streaming=streaming)
+                    )
                 else:
                     asyncio.run(run_parallel(api_request_data, use_streaming=streaming))
             finally:
