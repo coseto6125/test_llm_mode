@@ -620,13 +620,13 @@ def analyze_performance_data():
     lambda_entries = [
         e
         for e in perf_data
-        if e["執行模式"] == "Lambda轉出串流" and e["節點"] == "首個Token"
+        if e["執行模式"] == "Lambda串流模式" and e["節點"] == "首個Token"
     ]
 
     lambda_main_entries = [
         e
         for e in perf_data
-        if e["執行模式"] == "Lambda轉出串流" and e["節點"] == "Lambda主線程"
+        if e["執行模式"] == "Lambda串流模式" and e["節點"] == "Lambda主線程"
     ]
 
     if lambda_entries or lambda_main_entries:
@@ -1458,11 +1458,11 @@ if __name__ == "__main__":
     # 執行順序/並行、串流/非串流共 4 組
     import gc
     import time
-
+    
     from prompt import api_request_data
-
-    # 首先執行 Lambda 轉出串流模式測試
-    print("\n=== 測試: Lambda轉出串流模式 ===")
+    
+    # 首先執行 Lambda 串流模式測試
+    print("\n=== 測試: Lambda串流模式 ===")
     try:
         asyncio.run(run_lambda_streaming(api_request_data))
         # 立即保存並分析數據
