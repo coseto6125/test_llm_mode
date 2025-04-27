@@ -1,9 +1,15 @@
-# langgraph_flow.py
+# complex_dialog_flow_perf.py
 
 import asyncio
+import csv
+import json
 import os
 import platform
-from typing import Any, Literal, NotRequired, TypedDict
+import uuid
+from datetime import datetime
+from pathlib import Path
+from time import perf_counter, process_time
+from typing import Any, Dict, List, Literal, NotRequired, TypedDict, Union
 
 # 使用try-except避免Windows系統錯誤
 try:
@@ -14,363 +20,753 @@ except ImportError:
     has_uvloop = False
 
 from dotenv import load_dotenv
-from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from langchain_core.runnables import RunnableConfig, RunnableLambda
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
 from loguru import logger
 from pydantic import BaseModel, Field
 
-# 假設 raccoon_client.py 與此文件在同一目錄或 PYTHONPATH 中
-# 如果不在，請調整導入路徑
-from raccoon_client import RaccoonAIClient
-
 # --- 配置與初始化 ---
 
 # 配置日誌
-logger.add("langgraph_flow.log", rotation="10 MB", retention="7 days", level="DEBUG")
+logger.add(
+    "complex_dialog_flow.log", rotation="10 MB", retention="7 days", level="DEBUG"
+)
 
-# 加載環境變數 (例如 OPENAI_API_KEY)
+# 加載環境變數
 load_dotenv()
 
-# 檢查 OpenAI API Key 是否設置
-if not os.getenv("OPENAI_API_KEY_QA"):
-    logger.warning("OPENAI_API_KEY_QA 環境變數未設置，OpenAI LLM 可能無法工作。")
-    raise ValueError("OPENAI_API_KEY environment variable not set.")  # 或者直接報錯
+# 檢查並設置 OpenAI API Key
+api_key = os.getenv("OPENAI_API_KEY_QA")
+if not api_key:
+    logger.warning("OPENAI_API_KEY_QA 環境變數未設置，嘗試使用 OPENAI_API_KEY")
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        logger.error("無法找到有效的 OpenAI API 金鑰")
+        raise ValueError("No valid OpenAI API key found")
+
+# 明確設置 OPENAI_API_KEY 環境變數
+os.environ["OPENAI_API_KEY"] = api_key
+logger.info("成功設置 OpenAI API 金鑰")
+
+# 建立輸出目錄
+output_dir = Path("dialog_outputs")
+output_dir.mkdir(exist_ok=True)
+
+# 性能計時數據儲存
+perf_data = []
+
+# --- 定義對話流程狀態 ---
 
 
-# --- Langgraph 狀態定義 ---
+class Message(BaseModel):
+    """對話消息模型"""
+
+    role: str  # 'user', 'agent1', 'agent2', 'evaluator'
+    content: str
+    timestamp: str = Field(default_factory=lambda: datetime.now().isoformat())
 
 
-class FlowState(TypedDict):
-    source_input: NotRequired[str]
-    llm2_output: NotRequired[str]
-    llm3_output: NotRequired[str]
-    merged_output: NotRequired[str]
-    final_output: NotRequired[str]
+class DialogState(TypedDict):
+    """對話狀態"""
+
+    input_query: NotRequired[str]  # 用戶初始輸入
+    history: NotRequired[List[Message]]  # 對話歷史
+    current_turn: NotRequired[int]  # 當前對話輪次
+    max_turns: NotRequired[int]  # 最大對話輪次
+    agent1_response: NotRequired[str]  # Agent 1 的回應
+    agent2_response: NotRequired[str]  # Agent 2 的回應
+    evaluator_notes: NotRequired[str]  # 評估者的筆記
+    final_output: NotRequired[str]  # 最終輸出
+    dialog_id: NotRequired[str]  # 對話ID
+    use_streaming: NotRequired[bool]  # 是否使用串流模式
+    performance_metrics: NotRequired[Dict[str, Dict[str, float]]]  # 性能指標
 
 
-# --- 自訂 Runnable 封裝 RaccoonAIClient ---
+# --- 自訂 OpenAI LLM Runnable ---
 
 
-# 現在支援串流模式
-class RaccoonRunnable(BaseModel):
-    """封裝 RaccoonAIClient 的 Langchain Runnable"""
+class OpenAIRunnable(BaseModel):
+    """封裝 OpenAI LLM 的 Langchain Runnable"""
 
-    client: RaccoonAIClient = Field(default_factory=RaccoonAIClient)
-    brand_id: str = "137"  # 預設 brand_id
-    stream: bool = False  # 是否使用串流模式
+    model: str = "gpt-4.1-nano-2025-04-14"  # 使用的模型名稱
+    temperature: float = 0.7  # 溫度參數
+    stream: bool = True  # 是否使用串流模式
+    system_prompt: str = "你是一個專業的AI助手。"
+    agent_name: str = "agent"  # Agent 名稱標識
+    max_tokens: int = 1000  # 最大生成token數
 
     class Config:
         arbitrary_types_allowed = True
 
-    async def _invoke_raccoon(self, message: str, config: RunnableConfig | None = None) -> dict[str, Any]:
-        """異步調用 Raccoon AI Client"""
-        # 確保在異步上下文中使用 client
-        async with self.client as client:
-            try:
-                logger.debug(f"調用 Raccoon AI (Brand ID: {self.brand_id})，訊息: {message}...")
+    async def _invoke_openai(
+        self, state: Dict[str, Any], config: RunnableConfig | None = None
+    ) -> Dict[str, Any]:
+        """異步調用 OpenAI API"""
+        # 開始計時 - wall clock time
+        start_perf = perf_counter()
+        # CPU時間
+        start_process = process_time()
 
-                if self.stream:
-                    # 使用串流模式
-                    chunks = []
-                    # 添加測試信息，確認有開始串流
-                    logger.debug(f"開始串流處理 (Brand ID: {self.brand_id})")
-                    print(f"\n[開始處理 Agent {self.brand_id} 的回應]", flush=True)
+        performance_metrics = state.get("performance_metrics", {})
+        node_metrics = {"start_perf": start_perf, "start_process": start_process}
 
-                    async for chunk in client.stream_chat(message=message, brand_id=self.brand_id, reset_history=True):
-                        # 即時輸出
-                        print(chunk, end="", flush=True)
-                        chunks.append(chunk)
+        try:
+            # 準備消息歷史
+            history = state.get("history", [])
+            use_streaming = state.get("use_streaming", True)
 
-                    # 構建相容於非串流格式的回應
-                    full_content = "".join(chunks)
-                    logger.debug(
-                        f"Raccoon AI 串流回應完成 (Brand ID: {self.brand_id}), 收集到內容長度: {len(full_content)}"
+            logger.debug(
+                f"調用 {self.agent_name}，對話歷史長度: {len(history)}，串流模式: {use_streaming}"
+            )
+
+            # 將對話歷史轉換為 LangChain 消息格式
+            messages = [SystemMessage(content=self.system_prompt)]
+
+            for msg in history:
+                if msg.role == "user":
+                    messages.append(HumanMessage(content=msg.content))
+                else:
+                    messages.append(AIMessage(content=msg.content))
+
+            # 如果歷史為空，添加一個基本問候
+            if len(messages) == 1:  # 只有系統提示
+                if "input_query" in state and state["input_query"]:
+                    messages.append(HumanMessage(content=state["input_query"]))
+                else:
+                    messages.append(
+                        HumanMessage(content="您好，請問有什麼可以幫助您的嗎？")
                     )
 
-                    if not full_content.strip():
-                        logger.warning(f"Agent {self.brand_id} 回應為空，使用預設訊息")
-                        full_content = f"Agent {self.brand_id} 未提供有效回應。"
+            # 初始化 ChatOpenAI
+            llm = ChatOpenAI(
+                model=self.model,
+                temperature=self.temperature,
+                streaming=use_streaming,
+                api_key=api_key,
+                max_tokens=self.max_tokens,
+            )
 
-                    print(f"\n[Agent {self.brand_id} 回應完成]\n", flush=True)
+            # 收集所有的輸出
+            chunks = []
+            full_content = ""
 
-                    # 嘗試解析 JSON 結構，獲取 quick_replies.text 欄位
-                    try:
-                        # 檢查是否為二進制字串格式，通常以 b' 開頭
-                        if full_content.startswith("b'"):
-                            # 處理二進制字串，去除 b' 和結尾的 ' 並解碼
-                            import ast
-                            import json
+            # 標記API調用開始時間
+            api_start_perf = perf_counter()
+            api_start_process = process_time()
+            node_metrics["api_start_perf"] = api_start_perf
+            node_metrics["api_start_process"] = api_start_process
 
-                            # 使用 ast.literal_eval 安全地解析二進制字串為 Python 字節對象
-                            binary_str = ast.literal_eval(full_content)
+            # 開始處理
+            if use_streaming:
+                print(f"\n[{self.agent_name} 開始回應...]", flush=True)
 
-                            # 解碼為字符串，處理可能的 UTF-8 錯誤
-                            decoded_content = binary_str.decode("utf-8", errors="replace")
+                # 異步串流調用
+                async for chunk in llm.astream(messages):
+                    if chunk.content:
+                        # 即時輸出
+                        print(chunk.content, end="", flush=True)
+                        chunks.append(chunk.content)
 
-                            # 解析 JSON
-                            json_data = json.loads(decoded_content)
+                # 構建完整回應
+                full_content = "".join(chunks)
+                print(f"\n[{self.agent_name} 回應完成]\n", flush=True)
+            else:
+                # 非串流模式
+                print(f"\n[{self.agent_name} 處理中...]", flush=True)
+                response = await llm.ainvoke(messages)
+                full_content = response.content
+                print(f"[{self.agent_name} 回應完成]\n", flush=True)
 
-                            # 檢查並提取 quick_replies.text
-                            if isinstance(json_data, dict) and "quick_replies" in json_data:
-                                if (
-                                    isinstance(json_data["quick_replies"], dict)
-                                    and "text" in json_data["quick_replies"]
-                                ):
-                                    text_content = json_data["quick_replies"]["text"]
-                                    logger.info(f"成功從 JSON 提取 quick_replies.text: {text_content[:100]}...")
-                                    full_content = text_content
+            # 標記API調用結束時間
+            api_end_perf = perf_counter()
+            api_end_process = process_time()
+            node_metrics["api_end_perf"] = api_end_perf
+            node_metrics["api_end_process"] = api_end_process
+            node_metrics["api_duration_perf"] = api_end_perf - api_start_perf
+            node_metrics["api_duration_process"] = api_end_process - api_start_process
 
-                    except Exception as e:
-                        logger.warning(f"解析 JSON 結構時發生錯誤: {str(e)}，將使用原始內容")
+            # 檢查回應是否為空
+            if not full_content.strip():
+                logger.warning(f"{self.agent_name} 回應為空，使用預設訊息")
+                full_content = f"{self.agent_name} 未提供有效回應。"
 
-                    # 構建與非串流回應格式相容的結構
-                    return {"response": [{"content": full_content}]}
-                else:
-                    # 原有的非串流模式
-                    response = await client.chat(message=message, brand_id=self.brand_id, reset_history=True)
-                    logger.debug(f"Raccoon AI 回應 (Brand ID: {self.brand_id}): {str(response)[:100]}...")
-                    return response  # 直接返回完整回應字典
+            # 將回應添加到對話歷史
+            new_message = Message(role=self.agent_name, content=full_content)
+            updated_history = history + [new_message]
 
-            except Exception:
-                logger.exception(f"調用 Raccoon AI (Brand ID: {self.brand_id}) 時發生錯誤")
-                raise  # 重新拋出，讓 Langgraph 的錯誤處理機制接管
+            # 節點執行結束時間
+            end_perf = perf_counter()
+            end_process = process_time()
+            node_metrics["end_perf"] = end_perf
+            node_metrics["end_process"] = end_process
+            node_metrics["total_duration_perf"] = end_perf - start_perf
+            node_metrics["total_duration_process"] = end_process - start_process
+
+            # 性能數據
+            performance_metrics[self.agent_name] = node_metrics
+
+            # 記錄性能數據
+            streaming_mode = "串流" if use_streaming else "非串流"
+            perf_data.append(
+                {
+                    "節點": self.agent_name,
+                    "模式": streaming_mode,
+                    "wall_clock_time": node_metrics["total_duration_perf"],
+                    "cpu_time": node_metrics["total_duration_process"],
+                    "api_wall_clock_time": node_metrics["api_duration_perf"],
+                    "api_cpu_time": node_metrics["api_duration_process"],
+                    "時間戳": datetime.now().isoformat(),
+                }
+            )
+
+            # 打印性能數據
+            print(f"\n[{self.agent_name} 性能指標]")
+            print(
+                f"總執行時間 (wall clock): {node_metrics['total_duration_perf']:.4f}秒"
+            )
+            print(f"總 CPU 時間: {node_metrics['total_duration_process']:.4f}秒")
+            print(
+                f"API 調用時間 (wall clock): {node_metrics['api_duration_perf']:.4f}秒"
+            )
+            print(f"API 調用 CPU 時間: {node_metrics['api_duration_process']:.4f}秒")
+
+            # 返回更新後的狀態
+            return {
+                f"{self.agent_name}_response": full_content,
+                "history": updated_history,
+                "performance_metrics": performance_metrics,
+            }
+
+        except Exception as e:
+            logger.exception(f"{self.agent_name} 執行時發生錯誤\n{e}")
+
+            # 節點執行結束時間（錯誤情況）
+            end_perf = perf_counter()
+            end_process = process_time()
+            node_metrics["end_perf"] = end_perf
+            node_metrics["end_process"] = end_process
+            node_metrics["total_duration_perf"] = end_perf - start_perf
+            node_metrics["total_duration_process"] = end_process - start_process
+            node_metrics["error"] = str(e)
+
+            performance_metrics[self.agent_name] = node_metrics
+
+            # 返回錯誤訊息
+            return {
+                f"{self.agent_name}_response": f"很抱歉，處理您的請求時發生錯誤: {str(e)}",
+                "error": str(e),
+                "performance_metrics": performance_metrics,
+            }
 
     def as_runnable(self) -> RunnableLambda:
         """將此類轉換為 RunnableLambda"""
-        return RunnableLambda(self._invoke_raccoon)
+        return RunnableLambda(self._invoke_openai)
 
 
-# --- Langgraph 節點定義 ---
+# --- 對話流程節點 ---
 
 
-async def llm_agent_node(state: FlowState, agent_id: int, raccoon_runnable: RaccoonRunnable) -> dict[str, Any]:
-    """執行 LLM Agent (Raccoon) 的節點"""
-    logger.info(f"進入 LLM Agent {agent_id} 節點")
-    message = state["source_input"]
-    if not message:
-        logger.warning(f"LLM Agent {agent_id}: 原始訊息為空")
-        return {f"llm_{agent_id}_output": {"error": "Original message is empty."}}
+async def initialize_dialog(state: Dict[str, Any]) -> Dict[str, Any]:
+    """初始化對話"""
+    # 開始計時
+    start_perf = perf_counter()
+    start_process = process_time()
 
-    try:
-        # 串流模式會在 _invoke_raccoon 中即時輸出
-        response = await raccoon_runnable.as_runnable().ainvoke(message)
-        logger.info(f"LLM Agent {agent_id} 執行完成")
-        return {f"llm_{agent_id}_output": response}
-    except Exception as e:
-        logger.exception(f"LLM Agent {agent_id} 執行時發生錯誤")
-        return {f"llm_{agent_id}_output": {"error": f"Agent {agent_id} failed: {str(e)}"}}
+    logger.info("初始化新對話")
 
+    dialog_id = str(uuid.uuid4())
+    current_time = datetime.now().isoformat()
 
-async def aggregator_node(state: FlowState) -> dict[str, Any]:
-    """聚合 LLM Agent 2 和 3 結果的節點"""
-    logger.info("進入 Aggregator 節點")
-    llm_2_resp = state.get("llm2_output")
-    llm_3_resp = state.get("llm3_output")
+    # 從輸入中提取用戶查詢和串流設置
+    input_query = state.get("input_query", "您好，請問有什麼可以幫助您的嗎？")
+    use_streaming = state.get("use_streaming", True)
 
-    # 檢查是否有錯誤
-    error_2 = llm_2_resp.get("error") if isinstance(llm_2_resp, dict) else None
-    error_3 = llm_3_resp.get("error") if isinstance(llm_3_resp, dict) else None
+    # 初始化用戶消息
+    user_message = Message(role="user", content=input_query, timestamp=current_time)
 
-    if error_2 or error_3:
-        errors = [e for e in [error_2, error_3] if e]
-        error_msg = f"Aggregation failed due to upstream errors: {'; '.join(errors)}"
-        logger.error(error_msg)
-        return {"error": error_msg}  # 將錯誤記錄到狀態中，終止流程或導向錯誤處理分支
+    # 結束計時
+    end_perf = perf_counter()
+    end_process = process_time()
 
-    # 提取內容 - 根據不同的回應結構提取文本內容
-    content_2 = ""
-    # 處理串流模式返回的格式
-    if isinstance(llm_2_resp, dict) and isinstance(llm_2_resp.get("response"), list) and llm_2_resp["response"]:
-        response_item = llm_2_resp["response"][0]
-        if isinstance(response_item, dict):
-            # 直接獲取內容 (串流模式下應該是直接字串)
-            if isinstance(response_item.get("content"), str):
-                content_2 = response_item.get("content", "")
-            # 非串流模式下的複雜結構
-            elif isinstance(response_item.get("content"), list) and response_item["content"]:
-                content_2 = response_item["content"][0].get("text", "")
+    # 性能指標
+    performance_metrics = {
+        "initialize": {
+            "start_perf": start_perf,
+            "start_process": start_process,
+            "end_perf": end_perf,
+            "end_process": end_process,
+            "total_duration_perf": end_perf - start_perf,
+            "total_duration_process": end_process - start_process,
+        }
+    }
 
-    content_3 = ""
-    # 處理串流模式返回的格式
-    if isinstance(llm_3_resp, dict) and isinstance(llm_3_resp.get("response"), list) and llm_3_resp["response"]:
-        response_item = llm_3_resp["response"][0]
-        if isinstance(response_item, dict):
-            # 直接獲取內容 (串流模式下應該是直接字串)
-            if isinstance(response_item.get("content"), str):
-                content_3 = response_item.get("content", "")
-            # 非串流模式下的複雜結構
-            elif isinstance(response_item.get("content"), list) and response_item["content"]:
-                content_3 = response_item["content"][0].get("text", "")
-
-    # 檢查是否有內容
-    if not content_2.strip() and not content_3.strip():
-        logger.warning("兩個 Agent 的回應均為空")
-        merged_output = "兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。"
-    else:
-        # 簡單聚合：將兩個回應拼接起來
-        merged_output = f"來自 Agent 2 的觀點:\n{content_2}\n\n來自 Agent 3 的觀點:\n{content_3}"
-
-    logger.info("Aggregator 節點執行完成")
-    logger.debug(f"聚合後內容: {merged_output[:100]}...")
-
-    return {"merged_output": merged_output}
+    # 更新狀態
+    return {
+        "dialog_id": dialog_id,
+        "history": [user_message],
+        "current_turn": 1,
+        "max_turns": 3,  # 設置最大對話輪次
+        "use_streaming": use_streaming,
+        "performance_metrics": performance_metrics,
+    }
 
 
-async def final_llm_node(state: FlowState) -> dict[Literal["final_output"], str]:
-    """執行最終 LLM Agent (OpenAI) 並串流輸出的節點"""
-    logger.info("進入 Final LLM 節點")
-    merged_output = state.get("merged_output")
+async def hotel_agent_node(state: Dict[str, Any]) -> Dict[str, Any]:
+    """酒店預訂代理節點"""
+    logger.info(f"執行酒店預訂代理，對話 ID: {state.get('dialog_id')}")
 
-    if state.get("error"):  # 檢查上游是否有錯誤
-        logger.warning(f"由於上游錯誤，跳過 Final LLM 節點: {state['error']}")
-        # 可以選擇直接結束或返回錯誤狀態
-        # return {"final_output": None, "error": state["error"]}
-        # 這裡選擇讓流程自然結束，錯誤已記錄
-        return {"final_output": "流程執行中發生錯誤"}
+    # 創建酒店代理
+    hotel_agent = OpenAIRunnable(
+        model="gpt-4.1-nano-2025-04-14",
+        temperature=0.3,
+        stream=state.get("use_streaming", True),
+        agent_name="hotel_agent",
+        system_prompt="""你是一個專業的酒店預訂助手。
+你的職責是協助客人了解酒店信息、提供房間建議、處理預訂請求，並回答與酒店相關的問題。
+請保持專業、友善的態度，提供詳細而有用的回應。
+如果客人詢問的問題超出你的知識範圍，請誠實告知並嘗試引導對話回到酒店預訂相關話題。
 
-    if not merged_output:
-        logger.warning("Final LLM: 聚合內容為空")
-        return {"final_output": "聚合內容為空，無法生成最終回應。"}
+你可以提供的服務包括：
+1. 酒店房型介紹和價格資訊
+2. 預訂流程和政策說明
+3. 酒店設施和服務說明
+4. 入住和退房流程
+5. 特殊要求處理
 
-    # 記錄接收到的聚合內容，診斷問題
-    logger.debug(f"Final LLM 收到的聚合內容: {merged_output[:150]}...")
+請記得遵循以下溝通原則：
+- 使用禮貌、專業的語言
+- 提供具體、實用的資訊
+- 主動了解客人需求
+- 適時提出建議
+- 確認重要資訊""",
+    )
 
-    # 檢查聚合內容是否只有標題而沒有實質內容
-    if merged_output.strip() == "來自 Agent 2 的觀點:\n\n\n來自 Agent 3 的觀點:\n" or len(merged_output.strip()) < 50:
-        logger.warning("聚合內容缺少實質內容，使用預設訊息替代")
-        merged_output = """來自 Agent 2 的觀點:
-這是一個測試對話，我會根據評估標準給您提供客服對話的專業評分和建議。
+    # 執行酒店代理
+    result = await hotel_agent.as_runnable().ainvoke(state)
+    logger.info(f"酒店預訂代理執行完成，對話 ID: {state.get('dialog_id')}")
 
-來自 Agent 3 的觀點:
-聚合內容似乎缺少實質內容，可能是由於連接問題或API回應異常。建議檢查API連接和stream_chat方法的實現。
+    return result
+
+
+async def travel_agent_node(state: Dict[str, Any]) -> Dict[str, Any]:
+    """旅遊顧問代理節點"""
+    logger.info(f"執行旅遊顧問代理，對話 ID: {state.get('dialog_id')}")
+
+    # 創建旅遊代理
+    travel_agent = OpenAIRunnable(
+        model="gpt-4.1-nano-2025-04-14",
+        temperature=0.5,
+        stream=state.get("use_streaming", True),
+        agent_name="travel_agent",
+        system_prompt="""你是一個專業的旅遊顧問。
+你的職責是協助客人規劃旅行，提供目的地建議、景點推薦、當地文化和習俗資訊、交通建議等。
+請保持友善和專業的態度，提供詳細而有價值的旅遊建議。
+
+你可以提供的服務包括：
+1. 目的地推薦和介紹
+2. 景點和活動建議
+3. 當地美食和餐廳介紹
+4. 交通和行程規劃建議
+5. 旅行安全和健康提示
+6. 當地文化和習俗資訊
+
+請記得遵循以下溝通原則：
+- 提供個性化的建議
+- 考慮客人的偏好和需求
+- 提供實用的旅行技巧
+- 分享當地獨特體驗
+- 幫助客人做出明智的旅行決策
+
+如果客人詢問超出你知識範圍的問題，請誠實說明並引導對話回到旅遊相關話題。""",
+    )
+
+    # 執行旅遊代理
+    result = await travel_agent.as_runnable().ainvoke(state)
+    logger.info(f"旅遊顧問代理執行完成，對話 ID: {state.get('dialog_id')}")
+
+    return result
+
+
+async def evaluator_node(state: Dict[str, Any]) -> Dict[str, Any]:
+    """評估者節點"""
+    # 開始計時
+    start_perf = perf_counter()
+    start_process = process_time()
+
+    node_metrics = {"start_perf": start_perf, "start_process": start_process}
+
+    performance_metrics = state.get("performance_metrics", {})
+
+    logger.info(f"執行評估者，對話 ID: {state.get('dialog_id')}")
+
+    # 提取酒店代理和旅遊代理的回應
+    hotel_response = state.get("hotel_agent_response", "")
+    travel_response = state.get("travel_agent_response", "")
+
+    # 構建輸入
+    evaluation_input = f"""
+酒店預訂代理回應:
+{hotel_response}
+
+旅遊顧問代理回應:
+{travel_response}
 """
 
-    # 從 prompt 導入系統提示
-    from prompt import basic_evaluator_prompt
+    # 創建評估者
+    evaluator = OpenAIRunnable(
+        model="gpt-4.1-nano-2025-04-14",
+        temperature=0.3,
+        stream=state.get("use_streaming", True),
+        agent_name="evaluator",
+        system_prompt="""你是一個專業的對話評估專家。
+你的任務是評估兩個AI代理的回應，並提供以下分析：
+1. 兩個代理各自的優點和不足
+2. 哪個代理的回應更能滿足用戶需求及原因
+3. 如何結合兩個代理的優點，提供最佳回應
+4. 具體改進建議
 
-    # 初始化 OpenAI LLM (串流模式)
-    # 可以根據需要調整模型名稱和參數
-    llm = ChatOpenAI(model="gpt-4-turbo", temperature=0.7, streaming=True)
+請基於以下標準進行評估：
+- 回應的相關性和針對性
+- 資訊的準確性和完整性
+- 語言表達的清晰度和專業性
+- 對用戶需求的理解和滿足程度
+- 整體服務體驗
 
-    # 建立系統提示和用戶提示
-    system_message = SystemMessage(content=basic_evaluator_prompt)
-    human_message = HumanMessage(content=merged_output)
+請提供公正、客觀的評估，並給出具體的分析和建議。""",
+    )
 
-    # 異步串流調用
-    try:
-        print("\n--- 評估結果 ---\n", flush=True)
-        async for chunk in llm.astream([system_message, human_message]):
-            if chunk.content:
-                print(chunk.content, end="", flush=True)
-        print("\n", flush=True)
-        logger.info("Final LLM 串流輸出完成")
-        return {"final_output": "done"}
+    # 更新狀態，添加評估輸入
+    eval_state = {**state, "input_query": evaluation_input}
 
-    except Exception as e:
-        logger.exception("Final LLM 執行時發生錯誤")
-        return {"final_output": f"Final LLM failed: {str(e)}"}
+    # API調用開始時間
+    api_start_perf = perf_counter()
+    api_start_process = process_time()
+    node_metrics["api_start_perf"] = api_start_perf
+    node_metrics["api_start_process"] = api_start_process
+
+    # 執行評估者
+    result = await evaluator.as_runnable().ainvoke(eval_state)
+
+    # 合併結果
+    merged_result = {**result}
+
+    # 如果原始性能指標存在，保留它們
+    if "performance_metrics" in state:
+        merged_result["performance_metrics"] = {
+            **state["performance_metrics"],
+            **result.get("performance_metrics", {}),
+        }
+
+    logger.info(f"評估者執行完成，對話 ID: {state.get('dialog_id')}")
+
+    return merged_result
 
 
-# --- Langgraph 圖構建 ---
+async def summarize_dialog(state: Dict[str, Any]) -> Dict[str, Any]:
+    """總結對話並保存結果"""
+    # 開始計時
+    start_perf = perf_counter()
+    start_process = process_time()
+
+    logger.info(f"總結對話，對話 ID: {state.get('dialog_id')}")
+
+    dialog_id = state.get("dialog_id", str(uuid.uuid4()))
+    hotel_response = state.get("hotel_agent_response", "")
+    travel_response = state.get("travel_agent_response", "")
+    evaluator_response = state.get("evaluator_response", "")
+    history = state.get("history", [])
+    use_streaming = state.get("use_streaming", True)
+    performance_metrics = state.get("performance_metrics", {})
+
+    # 構建總結
+    stream_mode = "串流模式" if use_streaming else "非串流模式"
+
+    # 計算性能統計
+    perf_stats = "\n===== 性能統計 =====\n"
+    for node_name, metrics in performance_metrics.items():
+        if node_name == "initialize":
+            continue
+        perf_stats += f"\n--- {node_name} ---\n"
+        perf_stats += (
+            f"總執行時間 (wall clock): {metrics.get('total_duration_perf', 0):.4f}秒\n"
+        )
+        perf_stats += f"總 CPU 時間: {metrics.get('total_duration_process', 0):.4f}秒\n"
+        if "api_duration_perf" in metrics:
+            perf_stats += f"API 調用時間 (wall clock): {metrics.get('api_duration_perf', 0):.4f}秒\n"
+            perf_stats += (
+                f"API 調用 CPU 時間: {metrics.get('api_duration_process', 0):.4f}秒\n"
+            )
+
+    summary = f"""
+對話 ID: {dialog_id}
+模式: {stream_mode}
+時間: {datetime.now().isoformat()}
+
+{perf_stats}
+
+===== 對話歷史 =====
+{json.dumps([msg.dict() for msg in history], ensure_ascii=False, indent=2)}
+
+===== 酒店預訂代理回應 =====
+{hotel_response}
+
+===== 旅遊顧問代理回應 =====
+{travel_response}
+
+===== 評估者分析 =====
+{evaluator_response}
+"""
+
+    # 保存對話結果
+    output_file = output_dir / f"dialog_{dialog_id}_{stream_mode}.txt"
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write(summary)
+
+    logger.info(f"對話結果已保存到: {output_file}")
+
+    # 結束計時
+    end_perf = perf_counter()
+    end_process = process_time()
+
+    # 更新性能指標
+    performance_metrics["summarize"] = {
+        "start_perf": start_perf,
+        "start_process": start_process,
+        "end_perf": end_perf,
+        "end_process": end_process,
+        "total_duration_perf": end_perf - start_perf,
+        "total_duration_process": end_process - start_process,
+    }
+
+    # 更新整體性能指標
+    overall_start = min(
+        [
+            metrics.get("start_perf", float("inf"))
+            for metrics in performance_metrics.values()
+        ]
+    )
+    overall_end = max(
+        [metrics.get("end_perf", 0) for metrics in performance_metrics.values()]
+    )
+    overall_duration = overall_end - overall_start
+
+    # 打印整體性能
+    print("\n===== 整體性能 =====")
+    print(f"總執行時間 (wall clock): {overall_duration:.4f}秒")
+    print(f"模式: {stream_mode}")
+
+    # 返回最終結果
+    return {
+        "final_output": f"對話已完成並保存到: {output_file}",
+        "summary": summary,
+        "performance_metrics": performance_metrics,
+        "overall_duration": overall_duration,
+    }
 
 
-def build_graph() -> StateGraph:
-    """構建 Langgraph 流程圖"""
-    workflow = StateGraph(FlowState)
+# --- 流程控制 ---
 
-    # 使用串流模式
-    raccoon_agent_2 = RaccoonRunnable(brand_id="137", stream=True)  # 設置 stream=True
-    raccoon_agent_3 = RaccoonRunnable(brand_id="137", stream=True)  # 設置 stream=True
 
-    # 偏函數應用，將 agent_id 和 runnable 綁定到節點函數
-    # 使用 functools.partial 替代 lambda 以提高效能 (雖然此處差異不大)
-    from functools import partial
+def should_continue_dialog(
+    state: Dict[str, Any],
+) -> Union[Literal["continue_dialog"], Literal["end_dialog"]]:
+    """決定是否繼續對話"""
+    current_turn = state.get("current_turn", 1)
+    max_turns = state.get("max_turns", 3)
 
-    llm_agent_2_node_partial = partial(llm_agent_node, agent_id=137, raccoon_runnable=raccoon_agent_2)
-    llm_agent_3_node_partial = partial(llm_agent_node, agent_id=137, raccoon_runnable=raccoon_agent_3)
+    if current_turn < max_turns:
+        logger.info(f"繼續對話，當前輪次: {current_turn}/{max_turns}")
+        return "continue_dialog"
+    else:
+        logger.info(f"結束對話，已達最大輪次: {current_turn}/{max_turns}")
+        return "end_dialog"
 
-    workflow.add_node("llm_agent_2", llm_agent_2_node_partial)
-    workflow.add_node("llm_agent_3", llm_agent_3_node_partial)
-    workflow.add_node("aggregator", aggregator_node)
-    workflow.add_node("final_llm", final_llm_node)
 
-    # 設置一個虛擬的起始分支節點，確保並行執行
-    def start_branch(state: FlowState):
-        # 這個節點不做任何事，只是為了觸發後續的並行分支
-        logger.info("流程開始，準備分支到 LLM Agent 2 和 3")
-        return {}  # 返回空字典，不修改狀態
+def process_user_input(state: Dict[str, Any], user_input: str) -> Dict[str, Any]:
+    """處理用戶輸入，更新對話狀態"""
+    history = state.get("history", [])
+    current_turn = state.get("current_turn", 1)
 
-    workflow.add_node("start_branch", start_branch)
-    workflow.set_entry_point("start_branch")
-    workflow.add_edge("start_branch", "llm_agent_2")
-    workflow.add_edge("start_branch", "llm_agent_3")
+    # 創建新的用戶消息
+    user_message = Message(role="user", content=user_input)
 
-    # 添加聚合和最終節點的邊
-    workflow.add_edge("llm_agent_3", "aggregator")  # Agent 3 完成後也到 aggregator
-    workflow.add_edge("aggregator", "final_llm")
+    # 更新歷史和輪次
+    return {
+        **state,
+        "history": history + [user_message],
+        "current_turn": current_turn + 1,
+    }
 
-    # 添加結束點
-    workflow.add_edge("final_llm", END)
 
-    # 編譯圖
-    app = workflow.compile()
-    logger.info("Langgraph 圖構建完成")
-    return app
+# --- 構建對話流程圖 ---
+
+
+def build_dialog_graph() -> StateGraph:
+    """構建對話流程圖"""
+    workflow = StateGraph(DialogState)
+
+    # 添加節點
+    workflow.add_node("initialize", initialize_dialog)
+    workflow.add_node("hotel_agent", hotel_agent_node)
+    workflow.add_node("travel_agent", travel_agent_node)
+    workflow.add_node("evaluator", evaluator_node)
+    workflow.add_node("summarize", summarize_dialog)
+
+    # 設置入口
+    workflow.set_entry_point("initialize")
+
+    # 添加邊
+    workflow.add_edge("initialize", "hotel_agent")
+    workflow.add_edge("hotel_agent", "travel_agent")
+    workflow.add_edge("travel_agent", "evaluator")
+    workflow.add_edge("evaluator", "summarize")
+    workflow.add_edge("summarize", END)
+
+    # 編譯流程圖
+    graph = workflow.compile()
+    logger.info("對話流程圖構建完成")
+
+    return graph
 
 
 # --- 主執行函數 ---
 
 
-async def main(initial_message: str):
-    """主執行函數，運行 Langgraph 流程並處理串流輸出"""
-    app = build_graph()
+async def run_dialog(user_query: str, use_streaming: bool = True) -> Dict[str, Any]:
+    """執行對話流程"""
+    # 全局計時開始
+    global_start_perf = perf_counter()
+    global_start_process = process_time()
+
+    logger.info(f"開始執行對話流程，使用{'串流' if use_streaming else '非串流'}模式")
+    print(f"\n===== 開始執行{'串流' if use_streaming else '非串流'}模式對話 =====")
+
+    # 構建流程圖
+    graph = build_dialog_graph()
 
     # 初始狀態
-    initial_state: FlowState = {"source_input": initial_message}
+    initial_state: DialogState = {
+        "input_query": user_query,
+        "use_streaming": use_streaming,
+    }
 
-    logger.info(f"開始執行 Langgraph 流程，初始訊息: {initial_message}...")
+    logger.info(f"初始查詢: {user_query}")
 
-    # 使用 astream_events 來獲取更詳細的事件流，包括中間狀態和節點輸出
-    final_state = None
+    # 執行流程
     try:
-        # 在 Windows 上使用 ainvoke 而非 astream_events，避免 aiodns 錯誤
-        if platform.system() == "Windows":
-            logger.info("Windows 系統下使用 ainvoke 模式")
-            final_state = await app.ainvoke(initial_state)
-            logger.info("Langgraph 流程執行完畢")
-        else:
-            # 非 Windows 系統使用 astream_events 獲取詳細事件
-            async for event in app.astream_events(initial_state, version="v1"):
-                kind = event["event"]
+        # 執行對話流程
+        final_state = await graph.ainvoke(initial_state)
+        logger.info("對話流程執行完畢")
 
-                if kind == "on_chat_model_stream":
-                    # 這個事件類型適用於 Langchain LLM 的串流塊
-                    content = event["data"]["chunk"].content
-                    if content:
-                        print(content, end="", flush=True)  # 即時打印串流內容
-                elif kind == "on_graph_end":
-                    # 圖執行結束，獲取最終狀態
-                    final_state = event["data"]["output"]
-                    logger.info("Langgraph 流程執行完畢")
-                    break  # 圖結束後退出循環
+        # 全局計時結束
+        global_end_perf = perf_counter()
+        global_end_process = process_time()
+        total_perf_time = global_end_perf - global_start_perf
+        total_process_time = global_end_process - global_start_process
 
-        print("\n--- 流程結束 ---")
+        # 打印全局性能
+        print("\n===== 全局性能 =====")
+        print(f"總執行時間 (wall clock): {total_perf_time:.4f}秒")
+        print(f"總 CPU 時間: {total_process_time:.4f}秒")
 
-        if final_state and isinstance(final_state, dict):
-            logger.debug(f"最終狀態: { {k: v for k, v in final_state.items() if k != 'final_output'} }")
-            if error := final_state.get("error"):
-                logger.error(f"流程執行中發生錯誤: {error}")
-                print(f"\n錯誤: {error}")
-        else:
-            logger.error("未能獲取最終狀態")
+        # 記錄全局性能
+        perf_data.append(
+            {
+                "節點": "全局",
+                "模式": "串流" if use_streaming else "非串流",
+                "wall_clock_time": total_perf_time,
+                "cpu_time": total_process_time,
+                "api_wall_clock_time": "N/A",
+                "api_cpu_time": "N/A",
+                "時間戳": datetime.now().isoformat(),
+            }
+        )
+
+        # 保存性能數據到CSV
+        save_performance_data()
+
+        # 輸出摘要
+        print("\n===== 對話摘要 =====")
+        if "summary" in final_state:
+            show_summary_highlights(final_state["summary"])
+
+        return final_state
 
     except Exception as e:
-        logger.exception(f"執行流程時發生錯誤: {e}")
-        print(f"\n執行過程中發生錯誤: {e}")
+        logger.exception(f"對話流程執行時發生錯誤: {e}")
+        return {"error": str(e), "final_output": f"對話流程執行失敗: {str(e)}"}
 
 
+def save_performance_data() -> None:
+    """將性能數據儲存到CSV檔案"""
+    if not perf_data:
+        logger.warning("沒有性能數據可儲存")
+        return
+
+    # 建立檔案名稱
+    csv_file = (
+        output_dir
+        / f"performance_metrics_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    )
+
+    # 定義欄位名稱
+    fieldnames = [
+        "節點",
+        "模式",
+        "wall_clock_time",
+        "cpu_time",
+        "api_wall_clock_time",
+        "api_cpu_time",
+        "時間戳",
+    ]
+
+    try:
+        # 寫入CSV檔案
+        with open(csv_file, "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            for data in perf_data:
+                writer.writerow(data)
+
+        logger.info(f"性能數據已儲存到: {csv_file}")
+        print(f"\n性能數據已儲存到: {csv_file}")
+    except Exception as e:
+        logger.exception(f"儲存性能數據時發生錯誤: {e}")
+        print(f"儲存性能數據時發生錯誤: {e}")
+
+
+def show_summary_highlights(summary: str) -> None:
+    """顯示對話摘要的重點部分"""
+    lines = summary.strip().split("\n")
+
+    # 找出性能統計部分
+    perf_stats_start = -1
+    perf_stats_end = -1
+
+    for i, line in enumerate(lines):
+        if "===== 性能統計 =====" in line:
+            perf_stats_start = i
+        elif perf_stats_start != -1 and "===== 對話歷史 =====" in line:
+            perf_stats_end = i
+            break
+
+    # 顯示頭部資訊 (前10行)
+    print("--- 對話摘要開頭 ---")
+    for i in range(min(10, len(lines))):
+        print(lines[i])
+
+    # 顯示性能統計部分
+    if perf_stats_start != -1 and perf_stats_end != -1:
+        print("\n--- 性能統計 ---")
+        for i in range(perf_stats_start, perf_stats_end):
+            print(lines[i])
+
+    print("\n(完整對話摘要已儲存到檔案)")
+
+
+# 如果是直接執行此檔案（非導入）
 if __name__ == "__main__":
     # 為 Windows 系統設置合適的事件循環政策
     if platform.system() == "Windows":
@@ -386,8 +782,11 @@ if __name__ == "__main__":
     else:
         logger.info("使用標準事件循環")
 
-    # 測試訊息
-    from prompt import api_request_data
+    # 執行對話流程測試
+    test_query = "你好，我計劃去台北旅行，並且需要預訂酒店，有什麼推薦嗎？"
 
-    # 運行主函數
-    asyncio.run(main(api_request_data))
+    # 先執行串流模式
+    asyncio.run(run_dialog(test_query, use_streaming=True))
+
+    # 然後執行非串流模式
+    asyncio.run(run_dialog(test_query, use_streaming=False))
