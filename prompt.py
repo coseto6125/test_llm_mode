@@ -52,12 +52,4 @@ basic_evaluator_prompt = """
 """
 
 
-api_request_data = {
-    "chat_history": [
-        {
-            "role": "user",
-            "content": [{"text": "嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？", "type": "text"}],
-        }
-    ],
-    "brand_id": 137,
-}
+api_request_data = "嗨，您好！我想要訂房，請問可以幫我查詢一下嗎？"
