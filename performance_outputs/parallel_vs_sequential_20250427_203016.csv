@@ -1,0 +1,93 @@
+執行模式,節點,llm_type,串流模式,wall_clock_time,cpu_time,api_wall_clock_time,api_cpu_time,input,output,時間戳,error,節點佔比
+Lambda轉出串流,Agent_3,openai,串流,1.3930875750011182,0.14356500000000016,1.3930875750011182,0.14356500000000016,您好，我想預訂下週五的雙人房，請問有空房嗎？,"content='' additional_kwargs={} response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'} id='run-37f343e3-339c-4adf-baca-ab2cf05dc1a4'",2025-04-27T20:29:40.646227,,47.40%
+Lambda轉出串流,Agent_2,openai,串流,1.6435658320006041,0.16092700000000004,1.6435658320006041,0.16092700000000004,您好，我想預訂下週五的雙人房，請問有空房嗎？,"content='' additional_kwargs={} response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'} id='run-ab3edadb-4629-4f05-8f44-86ea3d09b736'",2025-04-27T20:29:40.886030,,52.57%
+Lambda轉出串流,Aggregator,N/A,串流,0.0005893559973628726,2.256765,0.0005893559973628726,2.25677,"{'llm2_output': AIMessageChunk(content='', additional_kwargs={}, response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'}, id='run-ab3edadb-4629-4f05-8f44-86ea3d09b736'), 'llm3_output': AIMessageChunk(content='', additional_kwargs={}, response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'}, id='run-37f343e3-339c-4adf-baca-ab2cf05dc1a4')}",兩個 Agent 均未返回有效回應。請檢查連接或嘗試不同的查詢。,2025-04-27T20:29:40.888004,,0.03%
+Lambda轉出串流,Lambda主線程,openai,串流,1.827928556002007,0.33591799999999994,1.827928556002007,0.3359239999999999,,,2025-04-27T20:29:40.890198,,
+Lambda轉出串流,Lambda節點總和,openai,串流,1.7990958329974092,0.33593899999999977,1.7990958329974092,0.3359399999999999,,,2025-04-27T20:29:40.890214,,
+Lambda轉出串流,Agent_2,openai,非串流,1.4645831249981711,0.029434999999999878,1.4645831249981711,0.029434999999999878,您好，我想預訂下週五的雙人房，請問有空房嗎？,"content='您好！感謝您的詢問。請您提供一下具體的日期和入住時間，我將為您查詢下週五的雙人房是否有空房。期待您的回覆！' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 43, 'prompt_tokens': 59, 'total_tokens': 102, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090', 'id': 'chatcmpl-BQvQgaRTC4pekormT9eJHp3d8hvWJ', 'finish_reason': 'stop', 'logprobs': None} id='run-5e411d34-96ec-4449-9c0a-fd9e479c296a-0' usage_metadata={'input_tokens': 59, 'output_tokens': 43, 'total_tokens': 102, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}}",2025-04-27T20:29:43.128748,,52.57%
+Lambda轉出串流,Agent_3,openai,非串流,1.418470922002598,0.01122600000000018,1.418470922002598,0.01122600000000018,您好，我想預訂下週五的雙人房，請問有空房嗎？,"content='您好！感謝您的詢問。請您提供下週五的具體日期以及入住和退房的時間，我將為您查詢雙人房的可用性。謝謝！' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 43, 'prompt_tokens': 59, 'total_tokens': 102, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090', 'id': 'chatcmpl-BQvQhyOIPXDxlokKPsf2XF1aq6Kex', 'finish_reason': 'stop', 'logprobs': None} id='run-1ff96a92-54f5-407e-aa71-6c3155648b23-0' usage_metadata={'input_tokens': 59, 'output_tokens': 43, 'total_tokens': 102, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}}",2025-04-27T20:29:44.548523,,47.40%
+Lambda轉出串流,Aggregator,N/A,非串流,0.001248528998985421,2.556396,0.001248528998985421,2.556402,"{'llm2_output': AIMessage(content='您好！感謝您的詢問。請您提供一下具體的日期和入住時間，我將為您查詢下週五的雙人房是否有空房。期待您的回覆！', additional_kwargs={'refusal': None}, response_metadata={'token_usage': {'completion_tokens': 43, 'prompt_tokens': 59, 'total_tokens': 102, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090', 'id': 'chatcmpl-BQvQgaRTC4pekormT9eJHp3d8hvWJ', 'finish_reason': 'stop', 'logprobs': None}, id='run-5e411d34-96ec-4449-9c0a-fd9e479c296a-0', usage_metadata={'input_tokens': 59, 'output_tokens': 43, 'total_tokens': 102, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}}), 'llm3_output': AIMessage(content='您好！感謝您的詢問。請您提供下週五的具體日期以及入住和退房的時間，我將為您查詢雙人房的可用性。謝謝！', additional_kwargs={'refusal': None}, response_metadata={'token_usage': {'completion_tokens': 43, 'prompt_tokens': 59, 'total_tokens': 102, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090', 'id': 'chatcmpl-BQvQhyOIPXDxlokKPsf2XF1aq6Kex', 'finish_reason': 'stop', 'logprobs': None}, id='run-1ff96a92-54f5-407e-aa71-6c3155648b23-0', usage_metadata={'input_tokens': 59, 'output_tokens': 43, 'total_tokens': 102, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}})}","來自 Agent 2 的觀點:
+您好！感謝您的詢問。請您提供一下具體的日期和入住時間，我將為您查詢下週五的雙人房是否有空房。期待您的回覆！
+
+來自 Agent 3 的觀點:
+您好！感謝您的詢問。請您提供下週五的具體日期以及入住和退房的時間，我將為您查詢雙人房的可用性。謝謝！",2025-04-27T20:29:44.551783,,0.03%
+Lambda轉出串流,Final_LLM,openai,非串流,7.576000057000783,2.945667,7.576000057000783,2.945674,"來自 Agent 2 的觀點:
+您好！感謝您的詢問。請您提供一下具體的日期和入住時間，我將為您查詢下週五的雙人房是否有空房。期待您的回覆！
+
+來自 Agent 3 的觀點:
+您好！感謝您的詢問。請您提供下週五的具體日期以及入住和退房的時間，我將為您查詢雙人房的可用性。謝謝！","```
+1. 0: 成功辨識出為訂房查詢情境，分類正確。
+2. 0: 用語禮貌，語氣適中，表達得體無誤。
+3. 1: 有要求具體日期和時間，但未主動提供如何查詢或其他相關資訊，引導稍顯不足。
+4. 0: 用戶情緒未明顯表現，客服回應中性，無需特別安撫。
+5. 0: 在簡短對話中維持上下文，尚無多輪測試。
+6. 0: 無洩露或不當處理敏感資訊。
+
+7. 總結與整體評估: 整體表現良好，能夠正確理解用戶意圖並保持專業的語氣。建議在引導方面可以提供更多的背景資訊或查詢步驟，以提升用戶體驗。
+```",2025-04-27T20:29:52.128844,,0.00%
+順序執行,全局,openai,非串流,10.656213762002153,0.6186259999999999,0.0,0.0,,,2025-04-27T20:29:52.130418,,
+Lambda轉出串流,Agent_2,openai,非串流,1.5759294090021285,0.04817399999999994,1.5759294090021285,0.04817399999999994,您好，我想預訂下週五的雙人房，請問有空房嗎？,"content='您好！感謝您的詢問。請您提供下週五的具體日期及入住時間，我將為您查詢雙人房的空房情況。謝謝！' additional_kwargs={} response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'} id='run-f502b07e-49be-4f61-a352-6db963d53a8a-0'",2025-04-27T20:29:54.461830,,52.57%
+Lambda轉出串流,Agent_3,openai,非串流,1.262908671000332,0.069442,1.262908671000332,0.069442,您好，我想預訂下週五的雙人房，請問有空房嗎？,"content='您好！感謝您的詢問。請您提供下週五的具體日期及入住時長，我將為您查詢雙人房的可用性。期待您的回覆！' additional_kwargs={} response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'} id='run-3435bfe3-ac66-4a2c-acc9-1940dda40064-0'",2025-04-27T20:29:55.725882,,47.40%
+Lambda轉出串流,Aggregator,N/A,非串流,0.0005078729991510045,3.31036,0.0005078729991510045,3.310364,"{'llm2_output': AIMessage(content='您好！感謝您的詢問。請您提供下週五的具體日期及入住時間，我將為您查詢雙人房的空房情況。謝謝！', additional_kwargs={}, response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'}, id='run-f502b07e-49be-4f61-a352-6db963d53a8a-0'), 'llm3_output': AIMessage(content='您好！感謝您的詢問。請您提供下週五的具體日期及入住時長，我將為您查詢雙人房的可用性。期待您的回覆！', additional_kwargs={}, response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'}, id='run-3435bfe3-ac66-4a2c-acc9-1940dda40064-0')}","來自 Agent 2 的觀點:
+您好！感謝您的詢問。請您提供下週五的具體日期及入住時間，我將為您查詢雙人房的空房情況。謝謝！
+
+來自 Agent 3 的觀點:
+您好！感謝您的詢問。請您提供下週五的具體日期及入住時長，我將為您查詢雙人房的可用性。期待您的回覆！",2025-04-27T20:29:55.728153,,0.03%
+Lambda轉出串流,Final_LLM,openai,非串流,4.684676319000573,3.61212,4.684676319000573,3.612124,"來自 Agent 2 的觀點:
+您好！感謝您的詢問。請您提供下週五的具體日期及入住時間，我將為您查詢雙人房的空房情況。謝謝！
+
+來自 Agent 3 的觀點:
+您好！感謝您的詢問。請您提供下週五的具體日期及入住時長，我將為您查詢雙人房的可用性。期待您的回覆！","```
+1. 0: 成功辨識出為訂房查詢情境，分類正確。
+2. 0: 用語禮貌，語氣適中，表達得體無誤。
+3. 1: 有要求具體日期及入住時間，但未主動說明如何查詢或提供其他選項，引導稍顯不足。
+4. 0: 用戶情緒未明顯表現，客服回應中性且適當。
+5. 0: 在簡短對話中維持上下文，尚無多輪測試。
+6. 0: 無洩露或不當處理敏感資訊。
+
+7. 總結與整體評估: 整體表現良好，能夠清楚理解用戶需求並保持專業語氣。建議在引導用戶提供資訊時，增加一些背景說明或選項，以提升用戶體驗。
+```",2025-04-27T20:30:00.413887,,0.00%
+順序執行,全局,openai,串流,7.71481277699786,0.6021200000000002,0.0,0.0,,,2025-04-27T20:30:00.414895,,
+Lambda轉出串流,Agent_2,openai,非串流,1.5404362570006924,0.21554099999999998,1.5404362570006924,0.21554099999999998,您好，我想預訂下週五的雙人房，請問有空房嗎？,"content='您好！感謝您聯繫我們。請問您希望預訂的酒店名稱是什麼？另外，您能告訴我入住和退房的具體日期嗎？這樣我可以幫您查詢是否有空房。' additional_kwargs={} response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'} id='run-edcb84a7-df61-40fd-9838-95862b3df61e'",2025-04-27T20:30:02.717474,,52.57%
+Lambda轉出串流,Agent_3,openai,非串流,1.7652114470001834,0.26083100000000004,1.7652114470001834,0.26083100000000004,您好，我想預訂下週五的雙人房，請問有空房嗎？,"content='您好！感謝您聯繫我們。為了幫助您查詢下週五的雙人房空房情況，我需要知道您希望入住的酒店名稱以及入住和退房的具體日期。請您提供這些信息，我將為您查詢可用房間。謝謝！' additional_kwargs={} response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'} id='run-1334cc59-3739-4779-aba0-4393ea1dd6d3'",2025-04-27T20:30:02.943272,,47.40%
+Lambda轉出串流,Aggregator,N/A,非串流,0.0010985039989463985,4.128015,0.0010985039989463985,4.128021,"{'llm2_output': AIMessage(content='您好！感謝您聯繫我們。請問您希望預訂的酒店名稱是什麼？另外，您能告訴我入住和退房的具體日期嗎？這樣我可以幫您查詢是否有空房。', additional_kwargs={}, response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'}, id='run-edcb84a7-df61-40fd-9838-95862b3df61e'), 'llm3_output': AIMessage(content='您好！感謝您聯繫我們。為了幫助您查詢下週五的雙人房空房情況，我需要知道您希望入住的酒店名稱以及入住和退房的具體日期。請您提供這些信息，我將為您查詢可用房間。謝謝！', additional_kwargs={}, response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'}, id='run-1334cc59-3739-4779-aba0-4393ea1dd6d3')}","來自 Agent 2 的觀點:
+您好！感謝您聯繫我們。請問您希望預訂的酒店名稱是什麼？另外，您能告訴我入住和退房的具體日期嗎？這樣我可以幫您查詢是否有空房。
+
+來自 Agent 3 的觀點:
+您好！感謝您聯繫我們。為了幫助您查詢下週五的雙人房空房情況，我需要知道您希望入住的酒店名稱以及入住和退房的具體日期。請您提供這些信息，我將為您查詢可用房間。謝謝！",2025-04-27T20:30:02.950926,,0.03%
+Lambda轉出串流,Final_LLM,openai,非串流,5.537387948999822,4.892001,5.537387948999822,4.892007,"來自 Agent 2 的觀點:
+您好！感謝您聯繫我們。請問您希望預訂的酒店名稱是什麼？另外，您能告訴我入住和退房的具體日期嗎？這樣我可以幫您查詢是否有空房。
+
+來自 Agent 3 的觀點:
+您好！感謝您聯繫我們。為了幫助您查詢下週五的雙人房空房情況，我需要知道您希望入住的酒店名稱以及入住和退房的具體日期。請您提供這些信息，我將為您查詢可用房間。謝謝！","```
+1. 0: 兩位客服均成功辨識出為酒店預訂查詢情境，分類正確。
+2. 0: 用語禮貌且語氣適中，表達得體無誤。
+3. 0.5: 雖然有要求酒店名稱及日期，但未提供具體的查詢步驟或說明，稍嫌引導不足。
+4. 0: 兩位客服的回應中性，未明顯識別用戶情緒，但情境不急迫，無需特別安撫。
+5. 0: 在簡短對話中維持上下文，尚無多輪測試。
+6. 0: 無洩露或不當處理敏感資訊。
+
+7. 總結與整體評估: 整體表現良好，客服能夠清楚地引導用戶提供必要資訊以進行酒店預訂查詢。建議在引導過程中增加更多的具體步驟或範例，以提升用戶體驗。
+```",2025-04-27T20:30:08.492968,,0.00%
+並行執行,全局,openai,非串流,7.513001243998588,1.2208089999999996,0.0,0.0,,,2025-04-27T20:30:08.497732,,
+Lambda轉出串流,Agent_3,openai,非串流,1.8643059040005028,0.25286400000000064,1.8643059040005028,0.25286400000000064,您好，我想預訂下週五的雙人房，請問有空房嗎？,"content='您好！感謝您聯繫我們。為了幫助您查詢下週五的雙人房空房情況，我需要知道您希望入住的酒店名稱以及入住和退房的具體日期。如果您有任何特殊要求或偏好，例如房型或設施，也請告訴我。期待您的回覆！' additional_kwargs={} response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'} id='run-6bea6c16-1b14-4243-bf01-c03d1d95e54a'",2025-04-27T20:30:11.120079,,47.40%
+Lambda轉出串流,Agent_2,openai,非串流,2.9342239209981926,0.3483369999999999,2.9342239209981926,0.3483369999999999,您好，我想預訂下週五的雙人房，請問有空房嗎？,"content='您好！感謝您聯繫我們。為了幫助您查詢下週五的雙人房空房情況，我需要知道您希望入住的酒店名稱和具體日期（例如：下週五的具體日期），以及您是否有任何特殊要求或偏好（例如：吸煙房、無障礙房等）。這樣我才能提供更準確的信息。期待您的回覆！' additional_kwargs={} response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'} id='run-38719e75-ce9c-4e94-98a0-7fbf78315564'",2025-04-27T20:30:12.188976,,52.57%
+Lambda轉出串流,Aggregator,N/A,非串流,0.0007192900011432357,5.494523,0.0007192900011432357,5.494529,"{'llm2_output': AIMessage(content='您好！感謝您聯繫我們。為了幫助您查詢下週五的雙人房空房情況，我需要知道您希望入住的酒店名稱和具體日期（例如：下週五的具體日期），以及您是否有任何特殊要求或偏好（例如：吸煙房、無障礙房等）。這樣我才能提供更準確的信息。期待您的回覆！', additional_kwargs={}, response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'}, id='run-38719e75-ce9c-4e94-98a0-7fbf78315564'), 'llm3_output': AIMessage(content='您好！感謝您聯繫我們。為了幫助您查詢下週五的雙人房空房情況，我需要知道您希望入住的酒店名稱以及入住和退房的具體日期。如果您有任何特殊要求或偏好，例如房型或設施，也請告訴我。期待您的回覆！', additional_kwargs={}, response_metadata={'finish_reason': 'stop', 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_0392822090'}, id='run-6bea6c16-1b14-4243-bf01-c03d1d95e54a')}","來自 Agent 2 的觀點:
+您好！感謝您聯繫我們。為了幫助您查詢下週五的雙人房空房情況，我需要知道您希望入住的酒店名稱和具體日期（例如：下週五的具體日期），以及您是否有任何特殊要求或偏好（例如：吸煙房、無障礙房等）。這樣我才能提供更準確的信息。期待您的回覆！
+
+來自 Agent 3 的觀點:
+您好！感謝您聯繫我們。為了幫助您查詢下週五的雙人房空房情況，我需要知道您希望入住的酒店名稱以及入住和退房的具體日期。如果您有任何特殊要求或偏好，例如房型或設施，也請告訴我。期待您的回覆！",2025-04-27T20:30:12.195608,,0.03%
+Lambda轉出串流,Final_LLM,openai,非串流,3.553734709999844,5.955297,3.553734709999844,5.955301,"來自 Agent 2 的觀點:
+您好！感謝您聯繫我們。為了幫助您查詢下週五的雙人房空房情況，我需要知道您希望入住的酒店名稱和具體日期（例如：下週五的具體日期），以及您是否有任何特殊要求或偏好（例如：吸煙房、無障礙房等）。這樣我才能提供更準確的信息。期待您的回覆！
+
+來自 Agent 3 的觀點:
+您好！感謝您聯繫我們。為了幫助您查詢下週五的雙人房空房情況，我需要知道您希望入住的酒店名稱以及入住和退房的具體日期。如果您有任何特殊要求或偏好，例如房型或設施，也請告訴我。期待您的回覆！","```
+1. 0:成功辨識出為查詢酒店房間情境，分類正確。
+2. 0:用語禮貌，語氣適中，表達得體。
+3. 1:雖然有要求入住酒店名稱和日期，但未主動提供如何查詢的具體步驟或建議，稍顯不足。
+4. 0:情緒表達中性，無明顯情緒需要處理，回應妥當。
+5. 0:在簡短對話中維持上下文，尚無多輪測試。
+6. 0:無洩露或不當處理敏感資訊。
+
+```",2025-04-27T20:30:15.754327,,0.00%
+並行執行,全局,openai,串流,6.693011354000191,1.0017060000000004,0.0,0.0,,,2025-04-27T20:30:15.759376,,

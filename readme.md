@@ -1,32 +1,26 @@
 ```mermaid
 graph TD
-    A[初始化對話<br/>initialize_dialog] --> B[酒店預訂代理<br/>hotel_agent_node]
-    B --> C[旅遊顧問代理<br/>travel_agent_node]
-    C --> D[評估者<br/>evaluator_node]
-    D --> E[總結對話<br/>summarize_dialog]
-    E --> F((結束))
-  
-    subgraph 性能監控
-        PM1[監控酒店代理性能]
-        PM2[監控旅遊代理性能]
-        PM3[監控評估者性能]
-    end
-  
-    B -.-> PM1
-    C -.-> PM2
-    D -.-> PM3
-  
-    subgraph 節點處理
-        P1[執行時間計算]
-        P2[API調用時間計算]
-        P3[記錄性能指標]
-    end
-  
-    subgraph 使用者設定
-        S1[串流/非串流模式]
-        S2[輪次控制]
-    end
-  
-    A -.-> S1
-    A -.-> S2
-```
+    A[開始] --> B[初始化狀態]
+    B --> C[啟動Agent 2]
+    B --> D[啟動Agent 3]
+    C --> E{asyncio.wait}
+    D --> E
+    E -->|FIRST_COMPLETED| F[Lambda轉出點]
+    F --> G[返回主線程]
+    
+    F -.->|不計入執行時間| H[背景線程處理]
+    H -.-> I[等待其餘任務]
+    I -.-> J[聚合處理]
+    J -.-> K[生成最終輸出]
+    K -.-> L[數據持久化]
+    
+    style C fill:#f9d5e5,stroke:#333
+    style D fill:#f9d5e5,stroke:#333
+    style F fill:#ffcc00,stroke:#333,stroke-width:2px
+    style G fill:#d5f9e5,stroke:#333
+    style H fill:#e6e6e6,stroke:#999,stroke-dasharray: 5 5
+    style I fill:#e6e6e6,stroke:#999,stroke-dasharray: 5 5
+    style J fill:#e6e6e6,stroke:#999,stroke-dasharray: 5 5
+    style K fill:#e6e6e6,stroke:#999,stroke-dasharray: 5 5
+    style L fill:#e6e6e6,stroke:#999,stroke-dasharray: 5 5
+    ```
