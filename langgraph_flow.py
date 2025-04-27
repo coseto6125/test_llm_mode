@@ -974,7 +974,7 @@ async def run_parallel(initial_message: str, use_streaming: bool = True):
     initial_state: FlowState = {
         "source_input": initial_message,
         "use_streaming": mode,
-        "執行模式": "並行執行",
+        "執行模式": "並行模式",
         "llm_type": "openai",
     }
     logger.info(f"初始查詢: {initial_message}")
@@ -1010,7 +1010,7 @@ async def run_parallel(initial_message: str, use_streaming: bool = True):
 
         perf_data.append(
             {
-                "執行模式": "並行執行",
+                "執行模式": "並行模式",
                 "節點": "全局",
                 "llm_type": "openai",
                 "串流模式": mode,
