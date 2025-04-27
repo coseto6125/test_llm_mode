@@ -95,10 +95,15 @@ class RaccoonAIClient:
         if history:
             self.chat_messages = deque(history, maxlen=100)
 
-        # user_message = self._create_user_message(message)
-        # self.chat_messages.append(message)
+        user_message = self._create_user_message(message)
+        self.chat_messages.append(user_message)
 
-        # payload = {"chat_history": list(self.chat_messages), "brand_id": brand_id}
+        # 構建正確的 payload 格式（字典而非字串）
+        payload = {
+            "chat_history": list(self.chat_messages), 
+            "brand_id": brand_id
+        }
+        
         logger.debug(f"發送請求到 API: {self._api_url}, 品牌ID: {brand_id}")
 
         session_to_use, need_close = self._get_or_create_session()
@@ -110,7 +115,7 @@ class RaccoonAIClient:
             async with session_to_use.post(
                 self._api_url,
                 headers=self.headers,
-                json=message,
+                json=payload,  # 使用正確格式的 payload
                 raise_for_status=False,
             ) as response:
                 end_time = perf_counter()
