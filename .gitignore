@@ -1,3 +1,6 @@
 .env
-__pycache__/*.pyc
+*.pyc
 *.dump
+langgraph_flow.log
+*.py
+*.csv
